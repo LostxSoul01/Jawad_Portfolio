@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+:root {
+  --color-void: #0a0c10;
+  --color-surface: #12151c;
+  --color-surface-hover: #171b24;
+  --color-hairline: #232833;
+  --color-hairline-bright: #2f3644;
+  --color-text-primary: #e8eaed;
+  --color-text-muted: #8a93a3;
+  --color-text-faint: #565f6f;
+  --color-signal: #e8a33d;
+  --color-signal-dim: #7a5a29;
+}
+
+@theme inline {
+  --color-void: var(--color-void);
+  --color-surface: var(--color-surface);
+  --color-surface-hover: var(--color-surface-hover);
+  --color-hairline: var(--color-hairline);
+  --color-hairline-bright: var(--color-hairline-bright);
+  --color-text-primary: var(--color-text-primary);
+  --color-text-muted: var(--color-text-muted);
+  --color-text-faint: var(--color-text-faint);
+  --color-signal: var(--color-signal);
+  --color-signal-dim: var(--color-signal-dim);
+
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+
+body {
+  background: var(--color-void);
+  color: var(--color-text-primary);
+  font-family: var(--font-body);
+}
+
+::selection {
+  background: var(--color-signal);
+  color: var(--color-void);
+}
+
+/* faint grid texture on the base layer, not repeated per-section */
+.grid-texture {
+  background-image:
+    linear-gradient(to right, var(--color-hairline) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--color-hairline) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 100%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-signal);
+  outline-offset: 2px;
+}
