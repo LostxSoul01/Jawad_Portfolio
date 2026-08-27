@@ -7,6 +7,7 @@ import Education from "@/components/Education";
 import Contact from "@/components/Contact";
 import ProofOfWork from "@/components/ProofOfWork";
 import ResumeSection from "@/components/ResumeSection";
+import TechnicalNotes from "@/components/TechnicalNotes";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
         <Projects />
         <Education />
         <ResumeSection />
+        <TechnicalNotes />
         <Contact />
       </main>
     </>

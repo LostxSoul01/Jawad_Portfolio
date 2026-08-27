@@ -8,14 +8,15 @@ import { ArrowUpRight, Loader2, Send, X } from "lucide-react";
 import { faqs } from "@/data/faqs";
 
 type ChatMessage = { role: "user" | "assistant"; content: string };
-type AssistantMode = "overview" | "technical" | "fit";
+type AssistantMode = "overview" | "technical" | "fit" | "recruiter";
 
-const modeLabels: Record<AssistantMode, string> = { overview: "overview", technical: "technical", fit: "role fit" };
-const modeHints: Record<AssistantMode, string> = { overview: "Get a quick read on Jawad’s background and strongest work.", technical: "Explore architecture, models, APIs, testing, and deployment.", fit: "Understand the roles, strengths, and projects that match best." };
+const modeLabels: Record<AssistantMode, string> = { overview: "overview", technical: "technical", fit: "role fit", recruiter: "recruiter" };
+const modeHints: Record<AssistantMode, string> = { overview: "Get a quick read on Jawad’s background and strongest work.", technical: "Explore architecture, models, APIs, testing, and deployment.", fit: "Understand the roles, strengths, and projects that match best.", recruiter: "Get concise hiring context, evidence, and the next best project to review." };
 const starterPrompts: Record<AssistantMode, string[]> = {
   overview: ["What has Jawad built?", "What are his strongest skills?"],
   technical: ["How does SmartSched work?", "Explain the AI E-Commerce architecture"],
   fit: ["Which roles is Jawad targeting?", "Why could he fit an AI team?"],
+  recruiter: ["Give me the 60-second recruiter brief", "Which project should I review first?"],
 };
 
 const WELCOME: ChatMessage = {

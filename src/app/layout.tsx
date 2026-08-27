@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     template: "%s | Jawad Ali Raza",
   },
   description:
-    "Software engineer building production-minded AI, full-stack, and computer-vision applications.",
+    "Software engineer helping people turn complex ideas into efficient digital products with applied AI and reliable full-stack engineering.",
   keywords: [
     "Jawad Ali Raza",
     "Software Engineer",
@@ -37,14 +37,15 @@ export const metadata: Metadata = {
     url: "https://jawad-portfolio-rho.vercel.app",
     title: "Jawad Ali Raza — Software Engineer",
     description:
-      "Production-minded AI, full-stack, and computer-vision projects by Jawad Ali Raza.",
+      "Software engineer helping people turn complex ideas into efficient digital products with applied AI and reliable full-stack engineering.",
     siteName: "Jawad Ali Raza",
+    images: [{ url: "/og-image.svg", width: 1200, height: 630, alt: "Jawad Ali Raza — Software Engineer · Applied AI" }],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: "Jawad Ali Raza — Software Engineer",
     description:
-      "Production-minded AI, full-stack, and computer-vision projects by Jawad Ali Raza.",
+      "Software engineer helping people turn complex ideas into efficient digital products with applied AI and reliable full-stack engineering.",
   },
   robots: {
     index: true,
