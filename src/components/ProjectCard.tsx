@@ -32,7 +32,7 @@ export default function ProjectCard({
       role="button"
       tabIndex={0}
       onKeyDown={(e) => e.key === "Enter" && onOpen(project)}
-      className="group flex flex-col rounded-lg border border-hairline bg-surface p-6 hover:border-hairline-bright hover:bg-surface-hover transition-colors cursor-pointer"
+      className="glass-panel group flex flex-col rounded-2xl p-6 hover:-translate-y-1 hover:border-hairline-bright hover:bg-surface-hover transition-all duration-300 cursor-pointer"
     >
       <div className="flex items-start justify-between gap-3">
         <div className="flex items-center gap-2">

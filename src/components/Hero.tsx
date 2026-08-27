@@ -56,6 +56,8 @@ export default function Hero() {
       className="relative flex min-h-screen flex-col justify-center px-6 pt-16"
     >
       <div className="grid-texture absolute inset-0 -z-10" />
+      <div className="pointer-events-none absolute left-[8%] top-[28%] h-40 w-40 rounded-full bg-cyan/10 blur-3xl" />
+      <div className="pointer-events-none absolute right-[12%] top-[18%] h-56 w-56 rounded-full bg-violet/10 blur-3xl" />
 
       <div className="mx-auto w-full max-w-5xl">
         <motion.p
@@ -71,7 +73,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="font-display font-semibold text-5xl sm:text-6xl md:text-7xl leading-[1.05] tracking-tight text-text-primary"
+          className="glow-text font-display font-semibold text-5xl sm:text-6xl md:text-7xl leading-[1.05] tracking-tight text-text-primary"
         >
           Jawad Ali Raza
         </motion.h1>

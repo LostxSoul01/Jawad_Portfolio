@@ -17,6 +17,26 @@ export type Project = {
 // status: "live" = deployed and linked, "code" = repo only, "private" = neither yet
 export const projects: Project[] = [
   {
+    slug: "juraai-pk",
+    title: "JuraAI.pk",
+    tagline: "Legal intelligence for Pakistan",
+    description:
+      "A polished legal-tech product experience for searching Pakistani case law and shaping stronger first drafts with AI-assisted research workflows.",
+    highlights: [
+      "Natural-language case-law search concept designed around how legal professionals actually frame questions",
+      "AI drafting workspace with upload, progress, citation, and response states",
+      "Citation-focused interface with quick-view interactions for keeping sources visible and traceable",
+      "Responsive Next.js product surface with a deliberate navy, emerald, and AI-gold design system",
+    ],
+    tech: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Framer Motion"],
+    metric: "Legal search + AI drafting product experience",
+    liveUrl: "https://juraai-pk.vercel.app",
+    githubUrl: "https://github.com/LostxSoul01/JuraAI.pk",
+    status: "live",
+    year: "2026",
+    featured: true,
+  },
+  {
     slug: "resumelens",
     title: "ResumeLens",
     tagline: "AI resume analysis, section by section",
