@@ -319,3 +319,21 @@ body::after {
   .skills-node--1, .skills-node--2, .skills-node--3, .skills-node--4, .skills-node--5, .skills-node--6 { position: static; width: auto; transform: none; }
   .skills-node--5:hover { transform: translateY(-7px); }
 }
+
+.education-card {
+  position: relative;
+  border: 1px solid rgba(103, 232, 249, 0.2);
+  background: linear-gradient(135deg, rgba(10, 21, 34, 0.94), rgba(7, 11, 21, 0.88));
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+.education-card__glow { position: absolute; top: -12rem; right: -8rem; width: 26rem; height: 26rem; border-radius: 999px; background: rgba(34, 211, 238, 0.08); filter: blur(70px); pointer-events: none; }
+.education-card__icon { display: flex; width: 54px; height: 54px; align-items: center; justify-content: center; border: 1px solid rgba(103, 232, 249, 0.32); border-radius: 16px; color: #67e8f9; background: linear-gradient(145deg, rgba(34, 211, 238, 0.16), rgba(124, 58, 237, 0.14)); box-shadow: 0 0 24px rgba(34, 211, 238, 0.1); }
+.education-stat { border: 1px solid rgba(148, 163, 184, 0.14); border-radius: 16px; padding: 16px; background: rgba(3, 8, 16, 0.45); }
+.education-stat strong { display: block; margin-top: 7px; color: #f8fafc; font-family: var(--font-display); font-size: 25px; letter-spacing: -0.03em; }
+.education-stat strong span { margin-left: 3px; color: #67e8f9; font-family: var(--font-mono); font-size: 12px; letter-spacing: 0; }
+.education-stat p { margin-top: 7px; color: #64748b; font-size: 11px; }
+.education-stat__bar { height: 4px; margin-top: 12px; overflow: hidden; border-radius: 99px; background: rgba(148, 163, 184, 0.14); }
+.education-stat__bar span { display: block; width: 97%; height: 100%; border-radius: inherit; background: linear-gradient(90deg, #22d3ee, #8b5cf6); box-shadow: 0 0 12px rgba(34, 211, 238, 0.55); }
+.education-chip { display: inline-flex; align-items: center; gap: 6px; border: 1px solid rgba(103, 232, 249, 0.15); border-radius: 999px; padding: 7px 10px; color: #94a3b8; font-size: 11px; line-height: 1.25; background: rgba(34, 211, 238, 0.04); transition: 200ms ease; }
+.education-chip:hover { border-color: rgba(103, 232, 249, 0.5); color: #cffafe; background: rgba(34, 211, 238, 0.1); }
+.education-card__footer { display: flex; justify-content: space-between; border-top: 1px solid rgba(148, 163, 184, 0.12); padding: 12px 24px; color: #64748b; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; }
