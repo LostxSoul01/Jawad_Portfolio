@@ -300,3 +300,22 @@ body::after {
 @media (prefers-reduced-motion: reduce) {
   .tech-background__signals line, .tech-background__orb, .tech-background__node, .skills-network__lines line, .skills-network__core-ring { animation: none; }
 }
+
+/* Six-node capability map: spacious desktop geometry inspired by the reference composition. */
+.skills-network { min-height: 780px; }
+.skills-network__lines { inset: 0; height: 100%; }
+.skills-network__lines path { fill: none; stroke: rgba(103, 232, 249, 0.34); stroke-width: 0.16; stroke-dasharray: 1.2 1.8; animation: signal-flow 5.5s linear infinite; }
+.skills-node { width: min(250px, 24%); }
+.skills-node--1 { left: 2%; top: 4%; }
+.skills-node--2 { right: 2%; top: 4%; }
+.skills-node--3 { left: 0; top: 42%; }
+.skills-node--4 { left: 25%; bottom: 0; }
+.skills-node--5 { right: 25%; bottom: 0; transform: none; }
+.skills-node--5:hover { transform: translateY(-7px); }
+.skills-node--6 { right: 0; top: 42%; }
+
+@media (max-width: 767px) {
+  .skills-network { min-height: auto; }
+  .skills-node--1, .skills-node--2, .skills-node--3, .skills-node--4, .skills-node--5, .skills-node--6 { position: static; width: auto; transform: none; }
+  .skills-node--5:hover { transform: translateY(-7px); }
+}

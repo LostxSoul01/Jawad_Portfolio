@@ -23,34 +23,22 @@ export default function About() {
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.6 }}
           >
-            <p className="font-display text-2xl sm:text-3xl leading-snug text-text-primary text-balance">
-              I build software at the intersection of applied AI, full-stack
-              engineering, and thoughtful product design. My focus is turning
-              complex technical ideas into dependable tools that people can
-              understand and use.
+            <p className="font-display text-3xl sm:text-4xl leading-tight text-text-primary text-balance">
+              I turn complex ideas into products people can actually use.
+              Applied AI, thoughtful interfaces, and engineering that holds up.
             </p>
             <p className="mt-6 text-text-muted leading-relaxed">
-              My recent work includes AI-assisted resume analysis, a legal
-              intelligence product for Pakistani case law, a constraint-aware
-              academic timetable generator, and machine-learning classifiers
-              deployed as interactive products. Across these projects, I work
-              across the full path from interface and API design to model
-              integration, validation, deployment, and iteration.
+              From legal intelligence to intelligent timetables, I build across
+              the full stack—from the first user flow to the final deployment.
             </p>
             <p className="mt-4 text-text-muted leading-relaxed">
-              I care about the gap between a project that demos well and one
-              that holds up under real use: clear architecture, honest metrics,
-              secure integrations, accessible interfaces, and code that another
-              engineer can maintain. I graduated with a 3.88 CGPA in Software
-              Engineering from COMSATS University Islamabad, and I&apos;m looking
-              for an engineering team where I can contribute, learn quickly,
-              and ship meaningful work.
+              My standard is simple: clear architecture, honest metrics, secure
+              integrations, and code another engineer can trust. BS Software
+              Engineering, 3.88/4.00 CGPA, COMSATS University Islamabad.
             </p>
             <p className="mt-4 text-text-muted leading-relaxed">
-              Outside engineering, I also run a multi-platform content
-              project. That experience has strengthened the same skills I bring
-              to product work: consistency, audience awareness, experimentation,
-              and ownership from idea to delivery.
+              I bring curiosity, ownership, and a bias toward shipping. Always
+              learning. Always improving the next build.
             </p>
           </motion.div>
 

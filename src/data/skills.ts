@@ -6,37 +6,33 @@ export type SkillGroup = {
 
 export const skillGroups: SkillGroup[] = [
   {
-    label: "Languages",
-    description: "The foundations I use to model problems and ship reliable software.",
-    items: ["Python", "JavaScript", "SQL"],
+    label: "Web Development",
+    description: "Responsive interfaces and product surfaces built for clarity, speed, and scale.",
+    items: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
   },
   {
-    label: "Frontend Engineering",
-    description: "Responsive interfaces with clear interaction design and accessible UI patterns.",
-    items: ["React.js", "Next.js", "HTML/CSS", "Tailwind CSS", "Responsive Design"],
+    label: "AI Applications",
+    description: "Useful AI experiences that connect models to real user workflows.",
+    items: ["LLM APIs", "Groq", "Prompt Design", "RAG"],
   },
   {
     label: "Backend & APIs",
-    description: "Typed services, integrations, and data flows designed to be maintained.",
-    items: ["Node.js", "FastAPI", "Netlify Functions", "Firebase", "REST APIs"],
+    description: "Typed services, integrations, and secure data flows that are built to last.",
+    items: ["Node.js", "FastAPI", "REST APIs", "Supabase"],
   },
   {
-    label: "AI & Machine Learning",
-    description: "Practical AI features grounded in evaluation, structured outputs, and real user workflows.",
-    items: [
-      "LLM API Integration",
-      "Groq API",
-      "vLLM",
-      "scikit-learn",
-      "Transformers",
-      "OpenCV",
-      "MediaPipe",
-      "Prompt Engineering",
-    ],
+    label: "Data & ML",
+    description: "Models and evaluation workflows that turn messy data into useful signals.",
+    items: ["Python", "scikit-learn", "Transformers", "SQL"],
+  },
+  {
+    label: "Computer Vision",
+    description: "Real-time visual intelligence for interactive and practical applications.",
+    items: ["OpenCV", "MediaPipe", "Image Models", "Evaluation"],
   },
   {
     label: "Delivery & Tooling",
-    description: "The engineering practices I use to move from local prototype to deployed product.",
-    items: ["Git & GitHub", "Streamlit", "Supabase", "Docker", "Vercel", "Netlify", "VS Code"],
+    description: "The practices that move a tested idea from local prototype to live product.",
+    items: ["Git & GitHub", "Docker", "Vercel", "Testing"],
   },
 ];
