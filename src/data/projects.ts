@@ -19,9 +19,9 @@ export const projects: Project[] = [
   {
     slug: "smartsched",
     title: "SmartSched",
-    tagline: "Constraint-aware timetable generation",
+    tagline: "Complex constraints. Smarter schedules.",
     description:
-      "Full-stack academic scheduling platform with role-based portals, a validated REST API, Supabase persistence, and a real Genetic Algorithm engine for generating conflict-aware timetables.",
+      "A full-stack academic scheduling platform that turns conflicting rooms, teachers, batches, and availability into practical timetables with a real Genetic Algorithm engine.",
     highlights: [
       "Admin, faculty, student, and program portals backed by a shared data model",
       "Constraint-aware Genetic Algorithm with selection, crossover, mutation, and a bounded runtime budget",
@@ -38,9 +38,9 @@ export const projects: Project[] = [
   {
     slug: "juraai-pk",
     title: "JuraAI.pk",
-    tagline: "Legal intelligence for Pakistan",
+    tagline: "Search the law. Draft with confidence.",
     description:
-      "A polished legal-tech product experience for searching Pakistani case law and shaping stronger first drafts with AI-assisted research workflows.",
+      "An AI-assisted legal research experience designed to make Pakistani case-law discovery, source tracing, and first-draft preparation feel faster and more focused.",
     highlights: [
       "Natural-language case-law search concept designed around how legal professionals actually frame questions",
       "AI drafting workspace with upload, progress, citation, and response states",
@@ -58,9 +58,9 @@ export const projects: Project[] = [
   {
     slug: "resumelens",
     title: "ResumeLens",
-    tagline: "AI resume analysis, section by section",
+    tagline: "Turn a good resume into a stronger one.",
     description:
-      "Resume analyzer that scores a CV section by section against a target role and rewrites weak bullet points using an LLM. Modular frontend and a Node.js backend running on Netlify Functions, with PDF parsing handled client-side.",
+      "An AI resume coach that evaluates every section against a target role, then turns vague experience into sharper, evidence-led bullet points.",
     highlights: [
       "Section-by-section scoring (summary, experience, skills, education) instead of one blended score",
       "LLM-powered bullet point rewriting with before/after suggestions",
@@ -79,9 +79,9 @@ export const projects: Project[] = [
   {
     slug: "ai-ecommerce",
     title: "Intelligent AI E-Commerce Platform",
-    tagline: "Final year project — shopping with a built-in review filter",
+    tagline: "Smarter shopping, more trustworthy reviews.",
     description:
-      "E-commerce platform with an LLM-powered assistant and a fake-review detector trained on product review data. Served an 8B-parameter Llama 3 model via vLLM alongside a DeBERTa-v3 classifier for review authenticity.",
+      "A full-stack commerce experience that pairs an LLM shopping assistant with a review-authenticity layer, helping buyers explore products with more context and confidence.",
     highlights: [
       "Final year project — full-stack e-commerce platform with an AI layer built in from the start, not bolted on",
       "Llama-3-8B served through vLLM for the in-app shopping assistant",
@@ -100,9 +100,9 @@ export const projects: Project[] = [
   {
     slug: "fake-news-detector",
     title: "Fake News Detector",
-    tagline: "Classic ML, tuned to a high bar",
+    tagline: "Simple models. Serious signal.",
     description:
-      "Text classification pipeline using TF-IDF vectorization and logistic regression to flag fake news articles, trained and evaluated on the ISOT dataset. Wrapped in a Streamlit app for interactive testing.",
+      "A focused text-classification pipeline that combines TF-IDF and logistic regression to identify misleading news, wrapped in an interactive Streamlit experience.",
     highlights: [
       "Trained and evaluated on the ISOT dataset — roughly 44,898 labeled news articles",
       "TF-IDF vectorization feeding a logistic regression classifier, tuned to 98.69% test accuracy",
@@ -120,9 +120,9 @@ export const projects: Project[] = [
   {
     slug: "skyline",
     title: "Skyline",
-    tagline: "A weather app that just works",
+    tagline: "The forecast, without the noise.",
     description:
-      "Lightweight weather app built with vanilla JavaScript, pulling live forecasts from the Open-Meteo API. No frameworks, no bloat — just clean fetch logic and a fast UI.",
+      "A fast, framework-free weather experience that turns live Open-Meteo data into a clean forecast with focused interactions and no unnecessary bloat.",
     highlights: [
       "Zero frameworks — pure JavaScript, HTML, and CSS, built to prove the fundamentals hold up without a library doing the heavy lifting",
       "Live data from the Open-Meteo API with clean async fetch logic and error handling",
@@ -139,7 +139,7 @@ export const projects: Project[] = [
   {
     slug: "image-captioning",
     title: "Image Captioning System",
-    tagline: "Teaching a model to describe what it sees",
+    tagline: "Giving images a voice",
     description:
       "Deep learning model trained on the Flickr8k dataset to generate natural-language captions for images, combining a CNN encoder with a sequence-based decoder.",
     highlights: [
@@ -157,7 +157,7 @@ export const projects: Project[] = [
   {
     slug: "ar-gesture-filter",
     title: "AR Hand Gesture Filter",
-    tagline: "Doctor Strange effects, real-time, on integrated graphics",
+    tagline: "Real-time vision, built for everyday hardware",
     description:
       "Real-time AR filter that tracks hand landmarks and renders magic-circle effects on top of a live camera feed, optimized to run smoothly on integrated graphics through frame downscaling and sprite caching.",
     highlights: [
@@ -175,7 +175,7 @@ export const projects: Project[] = [
   {
     slug: "patient-management",
     title: "Patient Management System",
-    tagline: "Core CRUD, done properly",
+    tagline: "Reliable records, organized workflows",
     description:
       "Full-stack system for managing patient records, appointments, and history with a structured relational schema.",
     highlights: [
@@ -192,7 +192,7 @@ export const projects: Project[] = [
   {
     slug: "employee-management",
     title: "Employee Management System",
-    tagline: "HR operations, structured",
+    tagline: "People data, made easier to manage",
     description:
       "Application for tracking employee records, roles, and departmental data with a normalized database design.",
     highlights: [
@@ -209,7 +209,7 @@ export const projects: Project[] = [
   {
     slug: "food-ordering",
     title: "Food Ordering System Re-Engineering",
-    tagline: "Rebuilding a legacy system properly",
+    tagline: "Making legacy software easier to evolve",
     description:
       "Re-engineered an existing food ordering system, restructuring the codebase and data flow for maintainability.",
     highlights: [
@@ -226,7 +226,7 @@ export const projects: Project[] = [
   {
     slug: "automotive-redesign",
     title: "Automotive Website Redesign",
-    tagline: "A dealership site, rebuilt",
+    tagline: "A clearer path from browsing to buying",
     description:
       "Redesigned an automotive business website with a focus on cleaner navigation and a more usable layout.",
     highlights: [

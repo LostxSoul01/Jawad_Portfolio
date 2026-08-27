@@ -28,13 +28,15 @@ export default function Projects() {
             onClick={() => setShowMore((s) => !s)}
             aria-expanded={showMore}
             aria-controls="additional-projects"
-            className="inline-flex items-center gap-2 font-mono text-sm text-text-muted hover:text-text-primary transition-colors"
+            className="group relative inline-flex items-center gap-3 overflow-hidden rounded-full border border-hairline-bright bg-surface/80 px-5 py-3 font-mono text-xs uppercase tracking-[0.18em] text-text-muted shadow-lg shadow-black/10 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-signal hover:text-signal hover:shadow-cyan/10"
           >
+            <span className="absolute inset-x-5 bottom-0 h-px origin-left scale-x-0 bg-gradient-to-r from-cyan to-violet transition-transform duration-300 group-hover:scale-x-100" />
             <ChevronDown
               size={16}
-              className={`transition-transform ${showMore ? "rotate-180" : ""}`}
+              className={`transition-transform duration-300 ${showMore ? "rotate-180" : "group-hover:translate-y-0.5"}`}
             />
-            {showMore ? "hide" : "show"} {otherProjects.length} more projects
+            <span>{showMore ? "Hide Projects" : "Show more Projects"}</span>
+            {!showMore && <span className="rounded-full bg-signal/10 px-2 py-1 text-[10px] text-signal">{otherProjects.length}</span>}
           </button>
 
           <AnimatePresence>
