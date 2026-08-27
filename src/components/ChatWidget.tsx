@@ -16,12 +16,12 @@ const WELCOME: ChatMessage = {
 
 function RobotMascot({ isOpen, compact = false }: { isOpen: boolean; compact?: boolean }) {
   return (
-    <span className={`relative block ${compact ? "h-10 w-10" : "h-16 w-16"}`} aria-hidden="true">
+    <span className={`relative block ${compact ? "h-8 w-8" : "h-12 w-12"}`} aria-hidden="true">
       <Image
         src="/robot-mascot-final.png"
         alt=""
         fill
-        sizes={compact ? "40px" : "80px"}
+        sizes={compact ? "32px" : "56px"}
         className={`robot-float object-contain ${isOpen ? "[animation-play-state:paused]" : ""}`}
       />
     </span>
@@ -81,7 +81,7 @@ export default function ChatWidget() {
         onClick={() => setIsOpen((v) => !v)}
         aria-label={isOpen ? "Close Jawad’s portfolio assistant" : "Ask Jawad’s portfolio robot"}
         aria-expanded={isOpen}
-        className="group fixed bottom-6 right-6 z-40 flex h-20 w-20 items-center justify-center rounded-[22px] bg-transparent text-void transition-transform hover:-translate-y-1"
+        className="group fixed bottom-4 right-4 z-40 flex h-14 w-14 items-center justify-center rounded-[22px] bg-transparent text-void transition-transform hover:-translate-y-1"
       >
         <RobotMascot isOpen={isOpen} />
         {!isOpen && <span className="pointer-events-none absolute -top-8 right-0 whitespace-nowrap rounded-full border border-hairline bg-surface px-2.5 py-1 font-mono text-[10px] text-text-muted opacity-0 transition-opacity group-hover:opacity-100">ask my robot</span>}
@@ -96,7 +96,7 @@ export default function ChatWidget() {
             transition={{ duration: 0.2, ease: "easeOut" }}
             role="dialog"
             aria-label="Jawad’s portfolio assistant"
-            className="glass-panel fixed bottom-28 right-6 z-40 flex h-[540px] w-[calc(100vw-3rem)] max-w-sm flex-col overflow-hidden rounded-2xl shadow-2xl shadow-black/50"
+            className="glass-panel fixed bottom-20 right-4 z-40 flex h-[min(540px,calc(100vh-6rem))] w-[calc(100vw-2rem)] max-w-sm flex-col overflow-hidden rounded-2xl shadow-2xl shadow-black/50"
           >
             <div className="flex items-center gap-3 border-b border-hairline px-4 py-3">
               <div className="flex h-10 w-10 items-center justify-center"><RobotMascot isOpen compact /></div>
