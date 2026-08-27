@@ -38,7 +38,7 @@ export default function ProjectModal({
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.2 }}
-          className="fixed inset-0 z-[100] flex items-start sm:items-center justify-center overflow-y-auto p-4 sm:p-6"
+          className="fixed inset-0 z-[100] flex items-start sm:items-center justify-center overflow-y-auto p-3 sm:p-6"
           onClick={onClose}
         >
           <div className="absolute inset-0 bg-void/80 backdrop-blur-sm" />
@@ -51,13 +51,13 @@ export default function ProjectModal({
             role="dialog"
             aria-modal="true"
             aria-labelledby="project-modal-title"
-            className="relative w-full max-w-2xl my-8 rounded-lg border border-hairline-bright bg-surface p-6 sm:p-8"
+            className="relative my-3 max-h-[calc(100dvh-1.5rem)] w-full max-w-2xl overflow-y-auto overscroll-contain rounded-2xl border border-hairline-bright bg-surface p-5 shadow-2xl shadow-black/40 sm:my-6 sm:max-h-[calc(100dvh-3rem)] sm:p-8"
             onClick={(e) => e.stopPropagation()}
           >
             <button
               onClick={onClose}
               aria-label="Close project details"
-              className="absolute top-5 right-5 text-text-faint hover:text-text-primary transition-colors"
+              className="sticky top-0 z-10 float-right -mr-1 -mt-1 rounded-full bg-surface/80 p-1 text-text-faint backdrop-blur hover:text-text-primary transition-colors sm:absolute sm:right-5 sm:top-5"
             >
               <X size={20} />
             </button>

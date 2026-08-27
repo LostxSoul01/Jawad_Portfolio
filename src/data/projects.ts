@@ -141,7 +141,7 @@ export const projects: Project[] = [
     title: "Image Captioning System",
     tagline: "Giving images a voice",
     description:
-      "Deep learning model trained on the Flickr8k dataset to generate natural-language captions for images, combining a CNN encoder with a sequence-based decoder.",
+      "An encoder–decoder vision project that transforms image features into natural-language captions, exploring the foundations of modern vision-language systems.",
     highlights: [
       "CNN encoder extracts image features, sequence decoder generates the caption word by word",
       "Trained on Flickr8k — roughly 8,000 images, each with multiple human-written reference captions",
@@ -159,7 +159,7 @@ export const projects: Project[] = [
     title: "AR Hand Gesture Filter",
     tagline: "Real-time vision, built for everyday hardware",
     description:
-      "Real-time AR filter that tracks hand landmarks and renders magic-circle effects on top of a live camera feed, optimized to run smoothly on integrated graphics through frame downscaling and sprite caching.",
+      "A real-time computer-vision experiment that turns hand landmarks into responsive AR effects while staying smooth on everyday integrated graphics.",
     highlights: [
       "Uses MediaPipe's HandLandmarker to track hand position and gesture in real time",
       "Renders Doctor Strange-style magic circle effects that follow hand movement via OpenCV",
@@ -177,7 +177,7 @@ export const projects: Project[] = [
     title: "Patient Management System",
     tagline: "Reliable records, organized workflows",
     description:
-      "Full-stack system for managing patient records, appointments, and history with a structured relational schema.",
+      "A structured healthcare workflow for organizing patient records, appointments, and visit history through a clear relational data model.",
     highlights: [
       "Relational schema designed around patients, appointments, and visit history",
       "Full CRUD operations across all core entities",
@@ -194,7 +194,7 @@ export const projects: Project[] = [
     title: "Employee Management System",
     tagline: "People data, made easier to manage",
     description:
-      "Application for tracking employee records, roles, and departmental data with a normalized database design.",
+      "A focused HR data system that keeps employee records, roles, and departments organized for faster lookups and cleaner reporting.",
     highlights: [
       "Normalized database design across employees, roles, and departments",
       "Structured for straightforward reporting and record lookups",
@@ -211,7 +211,7 @@ export const projects: Project[] = [
     title: "Food Ordering System Re-Engineering",
     tagline: "Making legacy software easier to evolve",
     description:
-      "Re-engineered an existing food ordering system, restructuring the codebase and data flow for maintainability.",
+      "A legacy-system re-engineering project that improves maintainability by simplifying the flow between ordering, inventory, and checkout.",
     highlights: [
       "Took over an existing codebase and restructured it for maintainability rather than building from scratch",
       "Focus on cleaner data flow between ordering, inventory, and checkout logic",
@@ -228,7 +228,7 @@ export const projects: Project[] = [
     title: "Automotive Website Redesign",
     tagline: "A clearer path from browsing to buying",
     description:
-      "Redesigned an automotive business website with a focus on cleaner navigation and a more usable layout.",
+      "A customer-first automotive redesign that gives vehicle shoppers a clearer path through listings, information, and next steps.",
     highlights: [
       "Rebuilt navigation structure around how customers actually browse vehicle listings",
       "Focus on usability improvements over the original layout",
@@ -245,7 +245,7 @@ export const projects: Project[] = [
     title: "Weather Mobile App",
     tagline: "Skyline's mobile predecessor",
     description:
-      "Mobile weather application built as an earlier exploration of live weather data and forecast UI patterns.",
+      "An early mobile weather experience that explored live API integration, forecast hierarchy, and the foundations later refined in Skyline.",
     highlights: [
       "Early exploration of live weather API integration on mobile",
       "Precursor to Skyline's cleaner, faster web implementation",
