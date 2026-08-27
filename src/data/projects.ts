@@ -116,7 +116,6 @@ export const projects: Project[] = [
     ],
     tech: ["Python", "scikit-learn", "TF-IDF", "Streamlit"],
     metric: "98.69% accuracy on ~44,898 articles",
-    liveUrl: "https://jawad-fake-news-detector.streamlit.app",
     githubUrl: "https://github.com/LostxSoul01/fake-news-detector",
     status: "live",
     year: "2026",
