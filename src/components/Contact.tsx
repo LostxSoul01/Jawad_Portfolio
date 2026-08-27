@@ -47,8 +47,8 @@ export default function Contact() {
             </div>
             <label className="contact-field mt-4">What brings you here?<select name="intent" defaultValue="Job opportunity"><option>Job opportunity</option><option>Freelance project</option><option>Collaboration</option><option>Technical question</option><option>General inquiry</option></select></label>
             <label className="contact-field mt-4">Message<textarea name="message" required minLength={12} rows={5} placeholder="A little context goes a long way..." /></label>
-            {status === "error" && <p className="mt-3 text-xs text-rose-300">Please add your name, a valid email, and at least a sentence of context.</p>}
-            {status === "ready" && <p className="mt-3 text-xs text-signal">Opening your email client…</p>}
+            {status === "error" && <p className="mt-3 text-xs text-rose-300" role="alert">Please add your name, a valid email, and at least a sentence of context.</p>}
+            {status === "ready" && <p className="mt-3 text-xs text-signal" role="status">Opening your email client…</p>}
             <button type="submit" className="mt-5 inline-flex items-center gap-2 rounded-xl bg-signal px-4 py-3 font-mono text-xs font-medium uppercase tracking-widest text-void transition-transform hover:-translate-y-0.5">Send inquiry <ArrowUpRight size={14} /></button>
           </form>
         </div>

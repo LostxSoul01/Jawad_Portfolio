@@ -30,6 +30,8 @@ const groundedAnswers: Record<string, string> = {
   "Which project demonstrates backend engineering?": "SmartSched is the strongest backend-oriented case study because it combines typed API routes, Supabase Row Level Security, Zod validation, authenticated mutations, and a constraint-aware scheduling engine.",
 };
 
+const FALLBACK_REPLY = "I can still guide you through the verified portfolio: start with SmartSched for full-stack engineering, the AI E-Commerce Platform for applied AI, or ResumeLens for AI product delivery. You can also open the résumé or contact Jawad directly below.";
+
 const WELCOME: ChatMessage = {
   role: "assistant",
   content: "I’m Jawad’s portfolio assistant. I can help you review his engineering work, technical strengths, education, and role fit — with answers grounded in the projects shown here.",
@@ -63,8 +65,8 @@ export default function ChatWidget() {
     try {
       const res = await fetch("/api/chat", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ messages: next, mode }) });
       const data = await res.json();
-      setMessages((m) => [...m, { role: "assistant", content: res.ok ? data.reply : data.error || "Something went wrong — try again in a moment." }]);
-    } catch { setMessages((m) => [...m, { role: "assistant", content: "I couldn’t reach the assistant right now. Please try again or contact Jawad directly at jawadaliics@gmail.com." }]); }
+      setMessages((m) => [...m, { role: "assistant", content: res.ok ? data.reply : FALLBACK_REPLY }]);
+    } catch { setMessages((m) => [...m, { role: "assistant", content: FALLBACK_REPLY }]); }
     finally { setLoading(false); }
   }
 
