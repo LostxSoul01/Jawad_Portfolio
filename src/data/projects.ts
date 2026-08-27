@@ -78,6 +78,7 @@ export const projects: Project[] = [
     status: "live",
     year: "2026",
     featured: true,
+    caseStudySlug: "resumelens",
   },
   {
     slug: "ai-ecommerce",
@@ -99,6 +100,7 @@ export const projects: Project[] = [
     status: "private",
     year: "2026",
     featured: true,
+    caseStudySlug: "ai-ecommerce",
   },
   {
     slug: "fake-news-detector",
@@ -119,6 +121,7 @@ export const projects: Project[] = [
     status: "live",
     year: "2026",
     featured: true,
+    caseStudySlug: "fake-news-detector",
   },
   {
     slug: "skyline",
@@ -138,6 +141,7 @@ export const projects: Project[] = [
     status: "live",
     year: "2026",
     featured: true,
+    caseStudySlug: "skyline",
   },
   {
     slug: "image-captioning",
@@ -156,6 +160,7 @@ export const projects: Project[] = [
     status: "code",
     year: "2025",
     featured: false,
+    caseStudySlug: "image-captioning",
   },
   {
     slug: "ar-gesture-filter",
@@ -174,6 +179,7 @@ export const projects: Project[] = [
     status: "code",
     year: "2025",
     featured: false,
+    caseStudySlug: "ar-gesture-filter",
   },
   {
     slug: "patient-management",
@@ -191,6 +197,7 @@ export const projects: Project[] = [
     status: "code",
     year: "2024",
     featured: false,
+    caseStudySlug: "patient-management",
   },
   {
     slug: "employee-management",
@@ -208,6 +215,7 @@ export const projects: Project[] = [
     status: "code",
     year: "2024",
     featured: false,
+    caseStudySlug: "employee-management",
   },
   {
     slug: "food-ordering",
@@ -225,6 +233,7 @@ export const projects: Project[] = [
     status: "code",
     year: "2024",
     featured: false,
+    caseStudySlug: "food-ordering",
   },
   {
     slug: "automotive-redesign",
@@ -242,6 +251,7 @@ export const projects: Project[] = [
     status: "code",
     year: "2024",
     featured: false,
+    caseStudySlug: "automotive-redesign",
   },
   {
     slug: "weather-mobile",
@@ -259,6 +269,7 @@ export const projects: Project[] = [
     status: "code",
     year: "2024",
     featured: false,
+    caseStudySlug: "weather-mobile",
   },
 ];
 
