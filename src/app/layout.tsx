@@ -9,6 +9,7 @@ import "@fontsource/jetbrains-mono/400.css";
 import "@fontsource/jetbrains-mono/500.css";
 import "./globals.css";
 import ChatWidget from "@/components/ChatWidget";
+import ScrollProgress from "@/components/ScrollProgress";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://jawad-portfolio-rho.vercel.app"),
@@ -58,6 +59,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className="antialiased" suppressHydrationWarning>
+        <ScrollProgress />
         {children}
         <ChatWidget />
       </body>

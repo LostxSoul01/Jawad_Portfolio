@@ -24,33 +24,33 @@ export default function About() {
             transition={{ duration: 0.6 }}
           >
             <p className="font-display text-2xl sm:text-3xl leading-snug text-text-primary text-balance">
-              I like building things where an LLM actually has to work for its
-              keep — not a chatbot bolted onto a landing page, but a feature
-              that does something a rule-based system couldn&apos;t.
+              I build software at the intersection of applied AI, full-stack
+              engineering, and thoughtful product design. My focus is turning
+              complex technical ideas into dependable tools that people can
+              understand and use.
             </p>
             <p className="mt-6 text-text-muted leading-relaxed">
-              That&apos;s meant shipping a resume analyzer that scores real CVs
-              section by section and rewrites weak bullet points on the spot,
-              a fake-review classifier running alongside a full e-commerce
-              assistant, and a text classifier tuned past 98% accuracy on
-              nearly 45,000 real news articles. Three of those are live right
-              now — not screenshots, not localhost demos, actual URLs
-              someone can open and use today.
+              My recent work includes AI-assisted resume analysis, a legal
+              intelligence product for Pakistani case law, a constraint-aware
+              academic timetable generator, and machine-learning classifiers
+              deployed as interactive products. Across these projects, I work
+              across the full path from interface and API design to model
+              integration, validation, deployment, and iteration.
             </p>
             <p className="mt-4 text-text-muted leading-relaxed">
-              What I care about is the gap between a project that demos well
-              in a five-minute walkthrough and one that actually holds up
-              under use — verified metrics instead of rounded-up numbers,
-              real deployments instead of &quot;should work,&quot; code someone else
-              can open and understand. I finished my degree with a 3.88 CGPA
-              carrying that habit the whole way through, and I&apos;m
-              looking for a team where it keeps paying off.
+              I care about the gap between a project that demos well and one
+              that holds up under real use: clear architecture, honest metrics,
+              secure integrations, accessible interfaces, and code that another
+              engineer can maintain. I graduated with a 3.88 CGPA in Software
+              Engineering from COMSATS University Islamabad, and I&apos;m looking
+              for an engineering team where I can contribute, learn quickly,
+              and ship meaningful work.
             </p>
             <p className="mt-4 text-text-muted leading-relaxed">
-              Outside of engineering, I run a content project reaching people
-              across eight platforms with halal, value-driven media — same
-              instinct for building something real end-to-end, just a
-              different medium.
+              Outside engineering, I also run a multi-platform content
+              project. That experience has strengthened the same skills I bring
+              to product work: consistency, audience awareness, experimentation,
+              and ownership from idea to delivery.
             </p>
           </motion.div>
 
