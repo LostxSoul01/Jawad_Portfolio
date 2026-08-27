@@ -6,11 +6,24 @@ type IncomingMessage = {
   content: string;
 };
 
+function groundedFallback(messages: IncomingMessage[], mode: string) {
+  const question = String(messages.at(-1)?.content ?? "").toLowerCase();
+  if (question.includes("smartsched") || question.includes("schedule")) return "SmartSched is Jawad’s strongest full-stack systems example. It combines role-based portals with typed API routes, Supabase data access, Zod validation, Row Level Security, and a Genetic Algorithm that accounts for teacher, room, batch, availability, lab, and repeat-course constraints. The important engineering choice was making feasibility explicit and testing edge cases instead of treating the generated timetable as a black box. Open the SmartSched case study for the architecture breakdown.";
+  if (question.includes("e-commerce") || question.includes("ecommerce") || question.includes("commerce")) return "The Intelligent AI E-Commerce Platform demonstrates applied AI inside a product workflow rather than as an isolated model demo. Its value is in connecting the user-facing commerce experience with AI-assisted discovery, review intelligence, structured responses, and clear interaction states. The relevant case study is the best place to inspect the architecture and product decisions.";
+  if (question.includes("resumelens") || question.includes("resume")) return "ResumeLens focuses on turning résumé analysis into actionable feedback. The architecture keeps PDF parsing client-side where possible, protects server-side secrets, and moves from uploaded document to structured analysis rather than returning an unexplained score. Its deployment work also covers Docker, GitHub Actions, GHCR, and Railway.";
+  if (question.includes("skill") || question.includes("stack") || question.includes("technology")) return "Jawad’s strongest stack spans TypeScript and React/Next.js for product interfaces; Python, FastAPI, and Node.js for services; Supabase and Firebase for data; scikit-learn, Transformers, Groq, vLLM, OpenCV, and MediaPipe for AI/ML; and Docker, GitHub Actions, Vercel, Netlify, Streamlit, and Railway for delivery.";
+  if (question.includes("hire") || question.includes("role") || question.includes("fit") || mode === "fit" || mode === "recruiter") return "Jawad is targeting Junior or Associate Software Engineer, AI Engineer, GenAI Engineer, Python Developer, and Full-Stack Developer roles. The strongest evidence is a portfolio spanning applied AI, typed full-stack systems, ML evaluation, computer vision, validation, and deployment. Start with SmartSched for backend depth or the AI E-Commerce Platform for applied-AI product work.";
+  if (question.includes("contact") || question.includes("email") || question.includes("reach")) return "The best way to reach Jawad is jawadaliics@gmail.com. He is open to role opportunities, freelance projects, collaborations, and technical conversations, and usually responds within 1–2 business days. The contact section can format the inquiry by intent.";
+  return "The portfolio documents Jawad’s work across applied AI, full-stack systems, machine-learning evaluation, and computer vision. I can give a more useful answer if you name a project, stack, role, or engineering decision—for example, SmartSched constraints, ResumeLens privacy, or AI E-Commerce architecture.";
+}
+
 export async function POST(req: NextRequest) {
+  let messages: IncomingMessage[] = [];
+  let mode = "overview";
   try {
     const body = await req.json();
-    const messages: IncomingMessage[] = Array.isArray(body?.messages) ? body.messages : [];
-    const mode = body?.mode === "technical" || body?.mode === "fit" || body?.mode === "recruiter" ? body.mode : "overview";
+    messages = Array.isArray(body?.messages) ? body.messages : [];
+    mode = body?.mode === "technical" || body?.mode === "fit" || body?.mode === "recruiter" ? body.mode : "overview";
 
     if (messages.length === 0) {
       return NextResponse.json({ error: "No messages provided." }, { status: 400 });
@@ -49,7 +62,7 @@ export async function POST(req: NextRequest) {
         Authorization: `Bearer ${apiKey}`,
       },
       body: JSON.stringify({
-        model: "llama-3.3-70b-versatile",
+        model: "openai/gpt-oss-20b",
         messages: [{ role: "system", content: `${getSystemPrompt()}\n\n${responseRules}` }, ...trimmed],
         temperature: 0.35,
         max_tokens: 420,
@@ -59,10 +72,7 @@ export async function POST(req: NextRequest) {
     if (!groqRes.ok) {
       const errText = await groqRes.text();
       console.error("Groq API error:", errText);
-      return NextResponse.json(
-        { error: "The assistant is temporarily unavailable. Try again in a moment." },
-        { status: 502 }
-      );
+      return NextResponse.json({ reply: groundedFallback(messages, mode), fallback: true });
     }
 
     const data = await groqRes.json();
@@ -73,6 +83,6 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ reply });
   } catch (err) {
     console.error("Chat route error:", err);
-    return NextResponse.json({ error: "Something went wrong on the server." }, { status: 500 });
+    return NextResponse.json({ reply: groundedFallback(messages, mode), fallback: true });
   }
 }
