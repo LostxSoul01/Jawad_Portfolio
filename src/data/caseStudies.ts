@@ -73,3 +73,19 @@ export const caseStudies: Record<string, CaseStudy> = {
     outcome: "An early mobile product exploration that established the interaction and data foundations for a cleaner weather experience.",
   },
 };
+
+
+// Flagship projects retain their original detailed narratives in the same shared model.
+caseStudies.smartsched = {
+  challenge: "Academic scheduling is a constraint-satisfaction problem disguised as a calendar. The system needs to respect people, rooms, availability, labs, repeat courses, and infeasible inputs without collapsing into a collection of manual exceptions.",
+  architecture: "Role-based Next.js portals connect to typed API routes, Zod validation, Supabase persistence, and a constraint-aware Genetic Algorithm that scores candidate timetables before returning the strongest feasible result.",
+  decisions: ["Model hard constraints explicitly instead of hiding them in UI logic.", "Keep admin mutations authenticated and validated at the API boundary.", "Bound the search process so the user receives a useful result within a predictable runtime budget."],
+  outcome: "Conflict-aware timetable generation within a bounded runtime budget, with role-based workflows and explicit handling for infeasible scheduling inputs.",
+};
+
+caseStudies["juraai-pk"] = {
+  challenge: "Legal research demands speed without losing source visibility. The product needed to feel approachable for exploration while keeping the path from question to citation-aware draft easy to follow.",
+  architecture: "A focused Next.js product surface connects legal search and AI-assisted drafting workflows with citation visibility, clear response states, and a visual language designed for trust-heavy research.",
+  decisions: ["Keep citations visible so AI-assisted research remains traceable.", "Design upload, progress, response, and quick-view states before polishing the happy path.", "Use a calm, deliberate interface for a domain where clarity matters more than visual noise."],
+  outcome: "A legal intelligence experience that brings Pakistani case-law discovery and AI-assisted drafting into one focused product workflow.",
+};
