@@ -40,6 +40,12 @@ export async function POST(req: NextRequest) {
       );
     }
 
+    const latestQuestion = String(messages.at(-1)?.content ?? "");
+    const groundedTopics = /smartsched|schedule|e-commerce|ecommerce|commerce|resumelens|resume|stack|technology|skill|hire|role|fit|contact|email|reach|backend/i;
+    if (groundedTopics.test(latestQuestion)) {
+      return NextResponse.json({ reply: groundedFallback(messages, mode), grounded: true });
+    }
+
     // Keep the payload small and bounded regardless of what the client sends.
     const trimmed = messages.slice(-12).map((m) => ({
       role: m.role === "assistant" ? "assistant" : "user",
@@ -53,7 +59,7 @@ export async function POST(req: NextRequest) {
         : mode === "recruiter"
           ? "Answer in a concise hiring-oriented format: best match, evidence from a named project, relevant skills, and a recommended next action. When asked for an overview, summarize role target, education, strongest capabilities, and relevant projects."
           : "Give concise, welcoming portfolio overviews and point visitors to relevant case studies or contact details.";
-    const responseRules = `Answer like a polished senior engineering portfolio concierge speaking to recruiters, hiring managers, and technical collaborators. Use only the supplied portfolio context. Never invent employers, production users, metrics, responsibilities, or technologies. Avoid generic praise, filler, clichés, and vague claims such as "passionate developer" or "cutting-edge solutions." Every answer should contain concrete evidence: a named project, technology, engineering decision, constraint, result, or next action. Keep normal answers under 180 words unless the visitor asks for depth. Prefer a direct opening sentence followed by 2–4 compact labeled points. Explain technical work in plain language first, then implementation detail. Mention the project name when making a claim and recommend a relevant case study when useful. If information is not present, say so clearly and offer the closest verified detail instead of guessing. Current mode: ${mode}. ${modeInstruction}`;
+    const responseRules = `Answer like a polished senior engineering portfolio concierge speaking to recruiters, hiring managers, and technical collaborators. Use only the supplied portfolio context. Never invent employers, production users, metrics, responsibilities, or technologies. Avoid generic praise, filler, clichés, vague claims, and marketing language. Every answer should contain concrete evidence: a named project, technology, engineering decision, constraint, result, or next action. Keep normal answers under 140 words unless the visitor asks for depth. Do not use Markdown tables. Prefer a direct opening sentence followed by 2–4 compact labeled points. Explain technical work in plain language first, then implementation detail. Mention the project name when making a claim and recommend a relevant case study when useful. If information is not present, say so clearly and offer the closest verified detail instead of guessing. Current mode: ${mode}. ${modeInstruction}`;
 
     const groqRes = await fetch("https://api.groq.com/openai/v1/chat/completions", {
       method: "POST",
@@ -78,7 +84,7 @@ export async function POST(req: NextRequest) {
     const data = await groqRes.json();
     const reply: string =
       data?.choices?.[0]?.message?.content?.trim() ||
-      "Sorry, I couldn't put together a response for that.";
+      groundedFallback(messages, mode);
 
     return NextResponse.json({ reply });
   } catch (err) {
