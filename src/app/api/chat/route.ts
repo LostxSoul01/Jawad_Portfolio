@@ -10,7 +10,7 @@ export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
     const messages: IncomingMessage[] = Array.isArray(body?.messages) ? body.messages : [];
-    const mode = body?.mode === "technical" || body?.mode === "fit" ? body.mode : "overview";
+    const mode = body?.mode === "technical" || body?.mode === "fit" || body?.mode === "recruiter" ? body.mode : "overview";
 
     if (messages.length === 0) {
       return NextResponse.json({ error: "No messages provided." }, { status: 400 });
@@ -37,7 +37,9 @@ export async function POST(req: NextRequest) {
       ? "Prioritize architecture, implementation choices, APIs, models, testing, security, and deployment. Explain the why before the how."
       : mode === "fit"
         ? "Explain Jawad’s suitability for roles using concrete portfolio evidence. Be balanced: do not invent employment history or overstate experience."
-        : "Give concise, welcoming portfolio overviews and point visitors to relevant case studies or contact details.";
+        : mode === "recruiter"
+          ? "Answer in a concise hiring-oriented format: best match, evidence from a named project, relevant skills, and a recommended next action. When asked for an overview, summarize role target, education, strongest capabilities, and relevant projects."
+          : "Give concise, welcoming portfolio overviews and point visitors to relevant case studies or contact details.";
     const responseRules = `Answer like a polished portfolio concierge speaking to recruiters, hiring managers, and technical collaborators. Use only the supplied portfolio context. Never invent employers, production users, metrics, responsibilities, or technologies. Keep normal answers under 140 words unless the visitor asks for depth. Prefer short paragraphs or compact labeled sections. Mention the project name when making a claim and recommend a relevant case study when useful. If information is not present, say so clearly and offer the closest verified detail. Current mode: ${mode}. ${modeInstruction}`;
 
     const groqRes = await fetch("https://api.groq.com/openai/v1/chat/completions", {

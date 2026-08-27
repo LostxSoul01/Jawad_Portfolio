@@ -16,7 +16,7 @@ const starterPrompts: Record<AssistantMode, string[]> = {
   overview: ["What has Jawad built?", "What are his strongest skills?"],
   technical: ["How does SmartSched work?", "Explain the AI E-Commerce architecture"],
   fit: ["Which roles is Jawad targeting?", "Why could he fit an AI team?"],
-  recruiter: ["Give me the 60-second recruiter brief", "Which project should I review first?"],
+  recruiter: ["Which project should I review first?", "Which project best demonstrates backend engineering?"],
 };
 
 const WELCOME: ChatMessage = {
