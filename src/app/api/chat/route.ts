@@ -40,7 +40,7 @@ export async function POST(req: NextRequest) {
         : mode === "recruiter"
           ? "Answer in a concise hiring-oriented format: best match, evidence from a named project, relevant skills, and a recommended next action. When asked for an overview, summarize role target, education, strongest capabilities, and relevant projects."
           : "Give concise, welcoming portfolio overviews and point visitors to relevant case studies or contact details.";
-    const responseRules = `Answer like a polished portfolio concierge speaking to recruiters, hiring managers, and technical collaborators. Use only the supplied portfolio context. Never invent employers, production users, metrics, responsibilities, or technologies. Keep normal answers under 140 words unless the visitor asks for depth. Prefer short paragraphs or compact labeled sections. Mention the project name when making a claim and recommend a relevant case study when useful. If information is not present, say so clearly and offer the closest verified detail. Current mode: ${mode}. ${modeInstruction}`;
+    const responseRules = `Answer like a polished senior engineering portfolio concierge speaking to recruiters, hiring managers, and technical collaborators. Use only the supplied portfolio context. Never invent employers, production users, metrics, responsibilities, or technologies. Avoid generic praise, filler, clichés, and vague claims such as "passionate developer" or "cutting-edge solutions." Every answer should contain concrete evidence: a named project, technology, engineering decision, constraint, result, or next action. Keep normal answers under 180 words unless the visitor asks for depth. Prefer a direct opening sentence followed by 2–4 compact labeled points. Explain technical work in plain language first, then implementation detail. Mention the project name when making a claim and recommend a relevant case study when useful. If information is not present, say so clearly and offer the closest verified detail instead of guessing. Current mode: ${mode}. ${modeInstruction}`;
 
     const groqRes = await fetch("https://api.groq.com/openai/v1/chat/completions", {
       method: "POST",
@@ -49,10 +49,10 @@ export async function POST(req: NextRequest) {
         Authorization: `Bearer ${apiKey}`,
       },
       body: JSON.stringify({
-        model: "llama-3.1-8b-instant",
+        model: "llama-3.3-70b-versatile",
         messages: [{ role: "system", content: `${getSystemPrompt()}\n\n${responseRules}` }, ...trimmed],
-        temperature: 0.25,
-        max_tokens: 300,
+        temperature: 0.35,
+        max_tokens: 420,
       }),
     });
 
