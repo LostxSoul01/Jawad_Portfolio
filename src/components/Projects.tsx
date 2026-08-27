@@ -13,17 +13,16 @@ const orderedFeaturedProjects = projectOrder.map((slug) => projects.find((projec
 const filters = ["All", "AI / GenAI", "Full-Stack", "Machine Learning", "Computer Vision", "Frontend"] as const;
 type ProjectFilter = (typeof filters)[number];
 
+const projectCategories: Record<Exclude<ProjectFilter, "All">, string[]> = {
+  "AI / GenAI": ["ai-ecommerce", "juraai-pk", "resumelens", "fake-news-detector", "image-captioning"],
+  "Full-Stack": ["smartsched", "ai-ecommerce", "patient-management", "employee-management", "food-ordering"],
+  "Machine Learning": ["ai-ecommerce", "fake-news-detector", "image-captioning"],
+  "Computer Vision": ["image-captioning", "ar-gesture-filter"],
+  Frontend: ["juraai-pk", "skyline", "automotive-redesign", "weather-mobile"],
+};
+
 function matchesFilter(project: Project, filter: ProjectFilter) {
-  if (filter === "All") return true;
-  const text = `${project.title} ${project.description} ${project.highlights.join(" ")} ${project.tech.join(" ")}`.toLowerCase();
-  const terms: Record<Exclude<ProjectFilter, "All">, string[]> = {
-    "AI / GenAI": ["ai", "llm", "groq", "vllm", "transformer", "caption"],
-    "Full-Stack": ["full-stack", "next.js", "react", "fastapi", "firebase", "supabase", "node.js"],
-    "Machine Learning": ["machine learning", "scikit", "tf-idf", "logistic", "debert", "genetic", "classifier", "model"],
-    "Computer Vision": ["computer vision", "opencv", "mediapipe", "cnn", "image", "hand landmark", "ar"],
-    Frontend: ["frontend", "web design", "react", "next.js", "javascript", "html/css", "tailwind"],
-  };
-  return terms[filter].some((term) => text.includes(term));
+  return filter === "All" || projectCategories[filter].includes(project.slug);
 }
 
 export default function Projects() {

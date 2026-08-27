@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowDown, ArrowRight, ChevronLeft, ChevronRight, ExternalLink, Sparkles } from "lucide-react";
+import { ArrowRight, ChevronLeft, ChevronRight, ExternalLink, Sparkles } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "./Icons";
 import { projects } from "@/data/projects";
 
@@ -69,7 +69,6 @@ export default function Hero() {
           <div className="spotlight-controls"><div className="spotlight-dots">{spotlightProjects.map((project, index) => <button key={project.slug} type="button" aria-label={`Show ${project.title}`} aria-current={index === activeIndex} onClick={() => setActiveIndex(index)}><span /></button>)}</div><div className="spotlight-arrows"><button type="button" onClick={() => moveCarousel(-1)} aria-label="Previous project"><ChevronLeft size={16} /></button><button type="button" onClick={() => moveCarousel(1)} aria-label="Next project"><ChevronRight size={16} /></button></div></div>
         </motion.div>
       </div>
-      <a href="#about" className="hero-scroll-cue" aria-label="Scroll to about section"><span>scroll to explore</span><ArrowDown size={16} /></a>
     </section>
   );
 }

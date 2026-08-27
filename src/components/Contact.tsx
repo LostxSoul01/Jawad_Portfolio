@@ -26,7 +26,7 @@ export default function Contact() {
   return (
     <section id="contact" className="px-6 py-28">
       <div className="mx-auto max-w-5xl">
-        <SectionLabel index="05" label="contact" />
+        <SectionLabel index="06" label="contact" />
         <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
           <div>
             <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-signal/20 bg-signal/5 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-signal"><span className="h-1.5 w-1.5 animate-pulse rounded-full bg-signal" /> Open to the right opportunity</div>

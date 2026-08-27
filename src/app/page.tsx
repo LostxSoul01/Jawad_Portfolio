@@ -6,6 +6,7 @@ import Projects from "@/components/Projects";
 import Education from "@/components/Education";
 import Contact from "@/components/Contact";
 import ProofOfWork from "@/components/ProofOfWork";
+import ResumeSection from "@/components/ResumeSection";
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
         <Skills />
         <Projects />
         <Education />
+        <ResumeSection />
         <Contact />
       </main>
     </>

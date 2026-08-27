@@ -1,8 +1,8 @@
-import { ArrowUpRight, BriefcaseBusiness, CheckCircle2, Gauge, GraduationCap } from "lucide-react";
+import { ArrowUpRight, BriefcaseBusiness, CheckCircle2, GraduationCap, Layers3 } from "lucide-react";
 
 const proofPoints = [
   { value: "10+", label: "projects shipped", icon: BriefcaseBusiness },
-  { value: "98.69%", label: "classifier accuracy", icon: Gauge },
+  { value: "6", label: "technical domains", icon: Layers3 },
   { value: "3.88/4.00", label: "CGPA · COMSATS", icon: GraduationCap },
   { value: "2026", label: "software engineering graduate", icon: CheckCircle2 },
 ];
