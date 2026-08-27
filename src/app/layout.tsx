@@ -11,9 +11,43 @@ import "./globals.css";
 import ChatWidget from "@/components/ChatWidget";
 
 export const metadata: Metadata = {
-  title: "Jawad Ali Raza — Software Engineer",
+  metadataBase: new URL("https://jawad-portfolio-rho.vercel.app"),
+  title: {
+    default: "Jawad Ali Raza — Software Engineer",
+    template: "%s | Jawad Ali Raza",
+  },
   description:
-    "Full-stack software engineer with hands-on LLM API integration experience. BS Software Engineering, COMSATS University Islamabad.",
+    "Software engineer building production-minded AI, full-stack, and computer-vision applications.",
+  keywords: [
+    "Jawad Ali Raza",
+    "Software Engineer",
+    "AI Engineer",
+    "Full-Stack Developer",
+    "Generative AI",
+    "Python",
+    "React",
+    "Next.js",
+  ],
+  authors: [{ name: "Jawad Ali Raza" }],
+  creator: "Jawad Ali Raza",
+  openGraph: {
+    type: "website",
+    url: "https://jawad-portfolio-rho.vercel.app",
+    title: "Jawad Ali Raza — Software Engineer",
+    description:
+      "Production-minded AI, full-stack, and computer-vision projects by Jawad Ali Raza.",
+    siteName: "Jawad Ali Raza",
+  },
+  twitter: {
+    card: "summary",
+    title: "Jawad Ali Raza — Software Engineer",
+    description:
+      "Production-minded AI, full-stack, and computer-vision projects by Jawad Ali Raza.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({

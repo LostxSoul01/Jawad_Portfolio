@@ -41,7 +41,7 @@ export default function About() {
               What I care about is the gap between a project that demos well
               in a five-minute walkthrough and one that actually holds up
               under use — verified metrics instead of rounded-up numbers,
-              real deployments instead of "should work," code someone else
+              real deployments instead of &quot;should work,&quot; code someone else
               can open and understand. I finished my degree with a 3.88 CGPA
               carrying that habit the whole way through, and I&apos;m
               looking for a team where it keeps paying off.

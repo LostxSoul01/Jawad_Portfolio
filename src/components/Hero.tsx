@@ -34,8 +34,10 @@ function useTypedRole() {
       if (text.length > 0) {
         timeout = setTimeout(() => setText(current.slice(0, text.length - 1)), 30);
       } else {
-        setPhase("typing");
-        setRoleIndex((i) => (i + 1) % roles.length);
+        timeout = setTimeout(() => {
+          setPhase("typing");
+          setRoleIndex((i) => (i + 1) % roles.length);
+        }, 0);
       }
     }
     return () => clearTimeout(timeout);
@@ -92,9 +94,9 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="mt-6 max-w-xl text-text-muted text-base sm:text-lg leading-relaxed"
         >
-          I build full-stack applications with real LLM integrations underneath —
-          from resume analysis tools to AI-powered e-commerce. BS Software
-          Engineering graduate, COMSATS University Islamabad.
+          I build production-minded AI, full-stack, and computer-vision applications
+          that turn complex technical ideas into useful products. BS Software
+          Engineering graduate from COMSATS University Islamabad.
         </motion.p>
 
         <motion.div

@@ -5,7 +5,6 @@ import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
 import Education from "@/components/Education";
 import Contact from "@/components/Contact";
-import ChatWidget from "@/components/ChatWidget";
 
 export default function Home() {
   return (
@@ -19,7 +18,6 @@ export default function Home() {
         <Education />
         <Contact />
       </main>
-      <ChatWidget />
     </>
   );
 }

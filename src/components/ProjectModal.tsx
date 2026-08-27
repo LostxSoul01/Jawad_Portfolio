@@ -48,6 +48,9 @@ export default function ProjectModal({
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 16, scale: 0.98 }}
             transition={{ duration: 0.25, ease: "easeOut" }}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="project-modal-title"
             className="relative w-full max-w-2xl my-8 rounded-lg border border-hairline-bright bg-surface p-6 sm:p-8"
             onClick={(e) => e.stopPropagation()}
           >
@@ -68,7 +71,7 @@ export default function ProjectModal({
               </span>
             </div>
 
-            <h3 className="font-display text-2xl sm:text-3xl font-semibold text-text-primary mt-3 pr-8">
+            <h3 id="project-modal-title" className="font-display text-2xl sm:text-3xl font-semibold text-text-primary mt-3 pr-8">
               {project.title}
             </h3>
             <p className="font-mono text-sm text-signal mt-1.5">{project.tagline}</p>

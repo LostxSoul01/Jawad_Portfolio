@@ -26,6 +26,8 @@ export default function Projects() {
         <div className="mt-10">
           <button
             onClick={() => setShowMore((s) => !s)}
+            aria-expanded={showMore}
+            aria-controls="additional-projects"
             className="inline-flex items-center gap-2 font-mono text-sm text-text-muted hover:text-text-primary transition-colors"
           >
             <ChevronDown
@@ -42,6 +44,7 @@ export default function Projects() {
                 animate={{ opacity: 1, height: "auto" }}
                 exit={{ opacity: 0, height: 0 }}
                 transition={{ duration: 0.35 }}
+                id="additional-projects"
                 className="overflow-hidden"
               >
                 <div className="grid gap-6 sm:grid-cols-2 mt-6">
