@@ -17,6 +17,27 @@ export type Project = {
 // status: "live" = deployed and linked, "code" = repo only, "private" = neither yet
 export const projects: Project[] = [
   {
+    slug: "smartsched",
+    title: "SmartSched",
+    tagline: "Constraint-aware timetable generation",
+    description:
+      "Full-stack academic scheduling platform with role-based portals, a validated REST API, Supabase persistence, and a real Genetic Algorithm engine for generating conflict-aware timetables.",
+    highlights: [
+      "Admin, faculty, student, and program portals backed by a shared data model",
+      "Constraint-aware Genetic Algorithm with selection, crossover, mutation, and a bounded runtime budget",
+      "Hard constraints for teacher, room, and batch clashes, availability, lab blocks, and repeat courses",
+      "Zod validation, Supabase Row Level Security, authenticated admin mutations, and typed API routes",
+      "Offline stress and edge-case tests for realistic and infeasible scheduling datasets",
+    ],
+    tech: ["Next.js", "TypeScript", "Supabase", "Genetic Algorithms", "REST API", "Zod"],
+    metric: "Conflict-aware timetable generation within a 9-second budget",
+    liveUrl: "https://smartsched-final.vercel.app",
+    githubUrl: "https://github.com/jawadali001/smartsched-final",
+    status: "live",
+    year: "2026",
+    featured: true,
+  },
+  {
     slug: "juraai-pk",
     title: "JuraAI.pk",
     tagline: "Legal intelligence for Pakistan",
