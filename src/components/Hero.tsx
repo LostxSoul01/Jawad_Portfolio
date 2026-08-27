@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "./Icons";
-import { projects } from "@/data/projects";
 
 const roles = [
   "Software Engineer",
@@ -48,7 +47,6 @@ function useTypedRole() {
 
 export default function Hero() {
   const typed = useTypedRole();
-  const liveCount = projects.filter((p) => p.status === "live").length;
 
   return (
     <section
@@ -144,18 +142,6 @@ export default function Hero() {
           </a>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.6 }}
-          className="mt-14 inline-flex items-center gap-2 rounded-full border border-hairline bg-surface px-4 py-2 font-mono text-xs text-text-muted"
-        >
-          <span className="relative flex h-1.5 w-1.5">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-signal opacity-60" />
-            <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-signal" />
-          </span>
-          {liveCount} projects deployed and running in production
-        </motion.div>
       </div>
 
       <a

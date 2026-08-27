@@ -1,13 +1,20 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { ArrowUpRight, BrainCircuit, Rocket, ShieldCheck } from "lucide-react";
 import SectionLabel from "./SectionLabel";
 
+const principles = [
+  { icon: BrainCircuit, title: "Think in systems", text: "I connect product intent, data, models, APIs, and interfaces into one clear flow." },
+  { icon: ShieldCheck, title: "Build with trust", text: "Clear architecture, honest metrics, secure integrations, and decisions another engineer can follow." },
+  { icon: Rocket, title: "Ship with purpose", text: "From first sketch to deployed product, I care about useful outcomes—not just impressive demos." },
+];
+
 const facts = [
-  { label: "Based in", value: "Punjab, Pakistan" },
-  { label: "Degree", value: "BS Software Engineering" },
-  { label: "University", value: "COMSATS Islamabad, Attock" },
-  { label: "CGPA", value: "3.88 / 4.00" },
+  ["Based in", "Punjab, Pakistan"],
+  ["Education", "BS Software Engineering"],
+  ["Standing", "3.88 / 4.00 CGPA · Ranked 2nd"],
+  ["Focus", "Applied AI · Full-stack · Product engineering"],
 ];
 
 export default function About() {
@@ -15,53 +22,24 @@ export default function About() {
     <section id="about" className="px-6 py-28">
       <div className="mx-auto max-w-5xl">
         <SectionLabel index="01" label="about" />
-
-        <div className="grid gap-12 md:grid-cols-[1.4fr_1fr]">
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.6 }}
-          >
-            <p className="font-display text-3xl sm:text-4xl leading-tight text-text-primary text-balance">
-              I turn complex ideas into products people can actually use.
-              Applied AI, thoughtful interfaces, and engineering that holds up.
-            </p>
-            <p className="mt-6 text-text-muted leading-relaxed">
-              From legal intelligence to intelligent timetables, I build across
-              the full stack—from the first user flow to the final deployment.
-            </p>
-            <p className="mt-4 text-text-muted leading-relaxed">
-              My standard is simple: clear architecture, honest metrics, secure
-              integrations, and code another engineer can trust. BS Software
-              Engineering, 3.88/4.00 CGPA, COMSATS University Islamabad.
-            </p>
-            <p className="mt-4 text-text-muted leading-relaxed">
-              I bring curiosity, ownership, and a bias toward shipping. Always
-              learning. Always improving the next build.
-            </p>
+        <div className="about-intro-grid">
+          <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-80px" }} transition={{ duration: 0.6 }}>
+            <p className="about-eyebrow">A builder’s point of view</p>
+            <h2 className="about-headline">Complex ideas in.<br /><span>Useful products out.</span></h2>
+            <p className="about-lede">I build at the intersection of applied AI, thoughtful interfaces, and dependable engineering.</p>
+            <div className="about-signature"><span className="about-signature__line" /><span>curiosity → craft → shipped work</span></div>
           </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.6, delay: 0.15 }}
-            className="rounded-lg border border-hairline bg-surface p-6 h-fit"
-          >
-            <p className="font-mono text-xs text-text-faint uppercase tracking-widest mb-4">
-              quick facts
-            </p>
-            <dl className="space-y-4">
-              {facts.map((f) => (
-                <div key={f.label} className="flex flex-col gap-0.5">
-                  <dt className="font-mono text-xs text-text-faint">{f.label}</dt>
-                  <dd className="text-text-primary text-sm">{f.value}</dd>
-                </div>
-              ))}
-            </dl>
+          <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-80px" }} transition={{ duration: 0.6, delay: 0.12 }} className="about-facts-card">
+            <p className="case-study-kicker">the quick read</p>
+            <dl>{facts.map(([label, value]) => <div key={label} className="about-fact"><dt>{label}</dt><dd>{value}</dd></div>)}</dl>
           </motion.div>
         </div>
+
+        <div className="about-principles-grid">
+          {principles.map(({ icon: Icon, title, text }, index) => <motion.article key={title} initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-60px" }} transition={{ duration: 0.5, delay: index * 0.08 }} className="about-principle-card"><div className="about-principle-card__top"><span className="about-principle-card__icon"><Icon size={18} /></span><span className="about-principle-card__index">0{index + 1}</span></div><h3>{title}</h3><p>{text}</p></motion.article>)}
+        </div>
+
+        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="about-closing-card"><p>“I bring curiosity, ownership, and a bias toward shipping.”</p><a href="#projects">See the work <ArrowUpRight size={15} /></a></motion.div>
       </div>
     </section>
   );

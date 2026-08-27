@@ -23,7 +23,7 @@ export default function Projects() {
           ))}
         </div>
 
-        <div className="mt-10">
+        <div className="mt-10 flex flex-col items-center">
           <button
             onClick={() => setShowMore((s) => !s)}
             aria-expanded={showMore}
