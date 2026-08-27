@@ -33,6 +33,13 @@ export async function POST(req: NextRequest) {
       content: String(m.content ?? "").slice(0, 1500),
     }));
 
+    const modeInstruction = mode === "technical"
+      ? "Prioritize architecture, implementation choices, APIs, models, testing, security, and deployment. Explain the why before the how."
+      : mode === "fit"
+        ? "Explain Jawad’s suitability for roles using concrete portfolio evidence. Be balanced: do not invent employment history or overstate experience."
+        : "Give concise, welcoming portfolio overviews and point visitors to relevant case studies or contact details.";
+    const responseRules = `Answer like a polished portfolio concierge speaking to recruiters, hiring managers, and technical collaborators. Use only the supplied portfolio context. Never invent employers, production users, metrics, responsibilities, or technologies. Keep normal answers under 140 words unless the visitor asks for depth. Prefer short paragraphs or compact labeled sections. Mention the project name when making a claim and recommend a relevant case study when useful. If information is not present, say so clearly and offer the closest verified detail. Current mode: ${mode}. ${modeInstruction}`;
+
     const groqRes = await fetch("https://api.groq.com/openai/v1/chat/completions", {
       method: "POST",
       headers: {
@@ -41,9 +48,9 @@ export async function POST(req: NextRequest) {
       },
       body: JSON.stringify({
         model: "llama-3.1-8b-instant",
-        messages: [{ role: "system", content: `${getSystemPrompt()}\n\nConversation mode: ${mode}. ${mode === "technical" ? "Prioritize architecture, implementation choices, APIs, models, testing, and deployment details." : mode === "fit" ? "Explain Jawad’s suitability for roles, collaboration value, strengths, and relevant projects in recruiter-friendly language." : "Give concise, welcoming portfolio overviews and point visitors to relevant projects or contact details."}` }, ...trimmed],
-        temperature: 0.4,
-        max_tokens: 400,
+        messages: [{ role: "system", content: `${getSystemPrompt()}\n\n${responseRules}` }, ...trimmed],
+        temperature: 0.25,
+        max_tokens: 300,
       }),
     });
 
