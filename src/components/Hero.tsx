@@ -118,6 +118,13 @@ export default function Hero() {
             view projects
           </a>
           <a
+            href="/jawad-ali-raza-resume.pdf"
+            download
+            className="inline-flex items-center gap-2 rounded-md border border-hairline px-5 py-2.5 font-mono text-sm text-text-primary hover:border-hairline-bright hover:bg-surface transition-colors"
+          >
+            download résumé
+          </a>
+          <a
             href="https://github.com/LostxSoul01"
             target="_blank"
             rel="noopener noreferrer"

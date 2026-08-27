@@ -4,6 +4,7 @@ import { GithubIcon } from "@/components/Icons";
 import { notFound } from "next/navigation";
 import { projects } from "@/data/projects";
 import { caseStudies } from "@/data/caseStudies";
+import CaseStudyVisual from "@/components/CaseStudyVisual";
 
 type PageProps = { params: Promise<{ slug: string }> };
 
@@ -41,7 +42,9 @@ export default async function ProjectCaseStudy({ params }: PageProps) {
           </div>
         </header>
 
-        <section className="case-study-grid mt-20">
+        <CaseStudyVisual slug={project.slug} />
+
+        <section className="case-study-grid mt-12">
           <div className="case-study-panel case-study-panel--featured"><div className="case-study-icon"><Layers3 size={20} /></div><p className="case-study-kicker">The challenge</p><h2>Build something useful under real constraints.</h2><p>{study.challenge}</p></div>
           <div className="case-study-panel"><div className="case-study-icon"><Code2 size={20} /></div><p className="case-study-kicker">The architecture</p><h2>From first interaction to dependable output.</h2><p>{study.architecture}</p></div>
         </section>

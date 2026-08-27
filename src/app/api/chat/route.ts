@@ -10,6 +10,7 @@ export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
     const messages: IncomingMessage[] = Array.isArray(body?.messages) ? body.messages : [];
+    const mode = body?.mode === "technical" || body?.mode === "fit" ? body.mode : "overview";
 
     if (messages.length === 0) {
       return NextResponse.json({ error: "No messages provided." }, { status: 400 });
@@ -40,7 +41,7 @@ export async function POST(req: NextRequest) {
       },
       body: JSON.stringify({
         model: "llama-3.1-8b-instant",
-        messages: [{ role: "system", content: getSystemPrompt() }, ...trimmed],
+        messages: [{ role: "system", content: `${getSystemPrompt()}\n\nConversation mode: ${mode}. ${mode === "technical" ? "Prioritize architecture, implementation choices, APIs, models, testing, and deployment details." : mode === "fit" ? "Explain Jawad’s suitability for roles, collaboration value, strengths, and relevant projects in recruiter-friendly language." : "Give concise, welcoming portfolio overviews and point visitors to relevant projects or contact details."}` }, ...trimmed],
         temperature: 0.4,
         max_tokens: 400,
       }),

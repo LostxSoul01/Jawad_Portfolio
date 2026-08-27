@@ -2,11 +2,15 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Send, Loader2, Sparkles } from "lucide-react";
 import { faqs } from "@/data/faqs";
 
 type ChatMessage = { role: "user" | "assistant"; content: string };
+type AssistantMode = "overview" | "technical" | "fit";
+
+const modeLabels: Record<AssistantMode, string> = { overview: "overview", technical: "technical", fit: "role fit" };
 
 const WELCOME: ChatMessage = {
   role: "assistant",
@@ -34,6 +38,7 @@ export default function ChatWidget() {
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const [askedFaqs, setAskedFaqs] = useState<Set<string>>(new Set());
+  const [mode, setMode] = useState<AssistantMode>("overview");
   const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -58,7 +63,7 @@ export default function ChatWidget() {
       const res = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ messages: next }),
+        body: JSON.stringify({ messages: next, mode }),
       });
       const data = await res.json();
       const reply: string = res.ok ? data.reply : data.error || "Something went wrong — try again in a moment.";
@@ -103,6 +108,9 @@ export default function ChatWidget() {
               <div className="min-w-0 flex-1"><p className="font-mono text-sm text-text-primary">Jawad’s portfolio robot</p><p className="text-xs text-text-faint">projects · skills · background</p></div>
               <Sparkles size={15} className="text-signal" />
             </div>
+            <div className="flex gap-1.5 border-b border-hairline px-4 py-2" role="tablist" aria-label="Assistant response mode">
+              {(Object.keys(modeLabels) as AssistantMode[]).map((option) => <button key={option} type="button" role="tab" aria-selected={mode === option} onClick={() => setMode(option)} className={`rounded-full px-2.5 py-1 font-mono text-[10px] uppercase tracking-wider transition-colors ${mode === option ? "bg-signal/15 text-signal" : "text-text-faint hover:text-text-muted"}`}>{modeLabels[option]}</button>)}
+            </div>
 
             <div ref={scrollRef} className="flex-1 space-y-3 overflow-y-auto px-4 py-4">
               {messages.map((m, i) => (
@@ -112,6 +120,7 @@ export default function ChatWidget() {
               ))}
               {loading && <div className="mr-auto flex items-center gap-2 rounded-2xl rounded-bl-md border border-hairline bg-void px-3.5 py-2.5 text-text-faint"><Loader2 size={14} className="animate-spin" /><span className="font-mono text-xs">researching Jawad’s work...</span></div>}
               {!loading && remainingFaqs.length > 0 && <div className="flex flex-wrap gap-1.5 pt-1">{remainingFaqs.map((f) => <button key={f.question} onClick={() => askFaq(f.question, f.answer)} className="rounded-full border border-hairline px-3 py-1.5 text-left text-xs text-text-muted transition-colors hover:border-signal hover:text-signal">{f.question}</button>)}</div>}
+              {!loading && messages.length === 1 && <div className="flex flex-wrap gap-2 pt-2"><Link href="/projects/smartsched" className="rounded-lg border border-hairline px-2.5 py-2 font-mono text-[10px] text-text-faint transition-colors hover:border-signal hover:text-signal">read SmartSched ↗</Link><Link href="/projects/juraai-pk" className="rounded-lg border border-hairline px-2.5 py-2 font-mono text-[10px] text-text-faint transition-colors hover:border-signal hover:text-signal">read JuraAI.pk ↗</Link></div>}
             </div>
 
             <form onSubmit={(e) => { e.preventDefault(); sendMessage(); }} className="flex items-center gap-2 border-t border-hairline p-3">
