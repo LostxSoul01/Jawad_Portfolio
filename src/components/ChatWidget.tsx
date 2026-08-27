@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Send, Loader2, Sparkles } from "lucide-react";
 import { faqs } from "@/data/faqs";
@@ -16,10 +17,12 @@ const WELCOME: ChatMessage = {
 function RobotMascot({ isOpen, compact = false }: { isOpen: boolean; compact?: boolean }) {
   return (
     <span className={`relative block ${compact ? "h-10 w-10" : "h-16 w-16"}`} aria-hidden="true">
-      <img
+      <Image
         src="/robot-mascot.png"
         alt=""
-        className={`robot-float h-full w-full object-contain ${isOpen ? "[animation-play-state:paused]" : ""}`}
+        fill
+        sizes={compact ? "40px" : "80px"}
+        className={`robot-float object-contain ${isOpen ? "[animation-play-state:paused]" : ""}`}
       />
     </span>
   );
