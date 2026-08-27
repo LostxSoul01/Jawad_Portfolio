@@ -5,48 +5,48 @@ export type Faq = {
 
 export const faqs: Faq[] = [
   {
+    question: "Give me a quick overview",
+    answer:
+      "Jawad Ali Raza is a Software Engineering graduate from COMSATS University Islamabad with a 3.88/4.00 CGPA. He builds applied AI, full-stack, and computer-vision products, including SmartSched, JuraAI.pk, ResumeLens, a fake-news detector, and Skyline. Five portfolio projects currently have live demos, and he is open to entry-level engineering roles.",
+  },
+  {
     question: "What has he built?",
     answer:
-      "A few highlights: ResumeLens, an AI resume analyzer that scores CVs section-by-section and rewrites weak bullet points using an LLM. A fake news detector hitting 98.69% accuracy on ~45,000 articles. And his final year project — an AI e-commerce platform with a fake-review detector and an LLM shopping assistant. All the details are in the Projects section above, or ask me about any specific one.",
+      "His featured work includes SmartSched, a constraint-aware academic timetable generator; JuraAI.pk, a legal intelligence product experience; ResumeLens, an AI resume analyzer; a fake-news classifier with 98.69% accuracy on about 44,898 articles; and Skyline, a lightweight weather application. Ask me about any project for its architecture and technical details.",
   },
   {
-    question: "What's his tech stack?",
+    question: "Tell me about SmartSched",
     answer:
-      "Python and JavaScript as core languages, React.js on the frontend, and Node.js / FastAPI on the backend. His strongest area is AI/ML integration — LLM APIs (Groq, vLLM), scikit-learn, OpenCV, and MediaPipe. Full breakdown is in the Skills section above.",
+      "SmartSched is a full-stack academic scheduling platform with admin, faculty, student, and program portals. Its scheduling engine uses a real Genetic Algorithm with hard constraints for teacher, room, and batch clashes, teacher availability, lab blocks, and repeat courses, supported by typed APIs, Supabase, Zod validation, and offline stress and edge-case tests.",
   },
   {
-    question: "Is he available for hire?",
+    question: "What is his tech stack?",
     answer:
-      "Yes — he's actively looking for entry-level roles: Junior/Associate Software Engineer, AI Engineer, GenAI Engineer, Python Developer, or Full-Stack Developer.",
+      "Jawad works primarily with Python, JavaScript, TypeScript, React, Next.js, Node.js, FastAPI, Supabase, Firebase, and REST APIs. His AI/ML toolkit includes LLM APIs, Groq, vLLM, scikit-learn, Transformers, OpenCV, and MediaPipe, with Vercel, Netlify, Streamlit, Docker, and GitHub supporting delivery.",
   },
   {
-    question: "How do I get in touch?",
+    question: "What is his engineering approach?",
     answer:
-      "Best way is email: jawadaliics@gmail.com. You can also find him on LinkedIn (linkedin.com/in/jawad-ali-raza1) and GitHub (github.com/LostxSoul01). Feel free to mention what you'd like to discuss and he'll get back to you.",
-  },
-  {
-    question: "Where is he based?",
-    answer:
-      "Punjab, Pakistan. Open to remote roles as well as relocation depending on the opportunity.",
-  },
-  {
-    question: "What's his education?",
-    answer:
-      "BS Software Engineering from COMSATS University Islamabad, Attock Campus — graduated July 2026 with a 3.88/4.00 CGPA. Coursework centered on software design, databases, and AI/ML, alongside self-directed work in local LLM deployment (Ollama) and real-time computer vision (MediaPipe, OpenCV).",
-  },
-  {
-    question: "Does he have work experience?",
-    answer:
-      "No formal employment yet — he's a recent graduate. What he brings instead is a substantial, verified project portfolio: real deployed applications with genuine LLM integrations, not just coursework exercises. Three projects are live in production right now.",
-  },
-  {
-    question: "What kind of role is he looking for?",
-    answer:
-      "Entry-level positions where he can keep building real things: Junior/Associate Software Engineer, AI Engineer, GenAI Engineer, Python Developer, or Full-Stack Developer. His strongest fit is anywhere that values hands-on LLM API integration experience.",
+      "He starts with the user problem, chooses the simplest reliable architecture, validates inputs and outputs, keeps secrets server-side, tests edge cases, and deploys only after the production path works. He values readable code, honest metrics, accessible interfaces, and clear communication about limitations.",
   },
   {
     question: "What makes his projects different?",
     answer:
-      "He's careful about the gap between something that demos well and something that actually holds up — verified metrics instead of rounded-up numbers, real deployments instead of \"should work,\" and code built to be read by someone else. That discipline shows up across his AI/ML, full-stack, and computer vision projects alike.",
+      "Jawad focuses on the gap between a project that demos well and one that holds up under real use. His portfolio emphasizes deployed applications, measurable results, protected integrations, validation, testing, and technical decisions that another engineer can understand and maintain.",
+  },
+  {
+    question: "What is his education?",
+    answer:
+      "Jawad holds a BS in Software Engineering from COMSATS University Islamabad, Attock Campus. He graduated in July 2026 with a 3.88/4.00 CGPA, with focus areas including software architecture, databases, artificial intelligence, machine learning, and software re-engineering.",
+  },
+  {
+    question: "Is he available for hire?",
+    answer:
+      "Yes. He is actively looking for Junior or Associate Software Engineer, AI Engineer, GenAI Engineer, Python Developer, and Full-Stack Developer opportunities. He is based in Punjab, Pakistan and is open to remote roles or relocation depending on the opportunity.",
+  },
+  {
+    question: "How do I get in touch?",
+    answer:
+      "The best way to reach Jawad is by email at jawadaliics@gmail.com. You can also connect with him on LinkedIn at linkedin.com/in/jawad-ali-raza1 or explore his work at github.com/LostxSoul01.",
   },
 ];

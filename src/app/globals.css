@@ -124,3 +124,13 @@ body::after {
   outline: 2px solid var(--color-signal);
   outline-offset: 3px;
 }
+
+.robot-wave {
+  animation: robot-wave 2.8s ease-in-out infinite;
+}
+
+@keyframes robot-wave {
+  0%, 58%, 100% { transform: rotate(8deg); }
+  66%, 82% { transform: rotate(-26deg); }
+  74% { transform: rotate(18deg); }
+}
