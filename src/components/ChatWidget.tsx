@@ -18,7 +18,7 @@ function RobotMascot({ isOpen, compact = false }: { isOpen: boolean; compact?: b
   return (
     <span className={`relative block ${compact ? "h-10 w-10" : "h-16 w-16"}`} aria-hidden="true">
       <Image
-        src="/robot-mascot.png"
+        src="/robot-mascot-final.png"
         alt=""
         fill
         sizes={compact ? "40px" : "80px"}
@@ -81,7 +81,7 @@ export default function ChatWidget() {
         onClick={() => setIsOpen((v) => !v)}
         aria-label={isOpen ? "Close Jawad’s portfolio assistant" : "Ask Jawad’s portfolio robot"}
         aria-expanded={isOpen}
-        className="group fixed bottom-6 right-6 z-40 flex h-20 w-20 items-center justify-center rounded-[22px] border border-white/20 bg-gradient-to-br from-signal to-cyan text-void shadow-xl shadow-cyan/10 transition-transform hover:-translate-y-1"
+        className="group fixed bottom-6 right-6 z-40 flex h-20 w-20 items-center justify-center rounded-[22px] bg-transparent text-void transition-transform hover:-translate-y-1"
       >
         <RobotMascot isOpen={isOpen} />
         {!isOpen && <span className="pointer-events-none absolute -top-8 right-0 whitespace-nowrap rounded-full border border-hairline bg-surface px-2.5 py-1 font-mono text-[10px] text-text-muted opacity-0 transition-opacity group-hover:opacity-100">ask my robot</span>}
@@ -99,7 +99,7 @@ export default function ChatWidget() {
             className="glass-panel fixed bottom-28 right-6 z-40 flex h-[540px] w-[calc(100vw-3rem)] max-w-sm flex-col overflow-hidden rounded-2xl shadow-2xl shadow-black/50"
           >
             <div className="flex items-center gap-3 border-b border-hairline px-4 py-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-signal to-cyan"><RobotMascot isOpen compact /></div>
+              <div className="flex h-10 w-10 items-center justify-center"><RobotMascot isOpen compact /></div>
               <div className="min-w-0 flex-1"><p className="font-mono text-sm text-text-primary">Jawad’s portfolio robot</p><p className="text-xs text-text-faint">projects · skills · background</p></div>
               <Sparkles size={15} className="text-signal" />
             </div>
