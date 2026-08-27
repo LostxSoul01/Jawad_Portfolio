@@ -473,3 +473,10 @@ body::after {
 @media (max-width: 900px) { .spotlight-shell { min-height: 460px; }.spotlight-content { min-height: 345px; } }
 @media (max-width: 640px) { .hero-stage { padding-top: 8rem; padding-bottom: 6rem; }.hero-kicker { font-size: 9px; }.hero-kicker > span:last-child, .hero-kicker__line { display: none; }.hero-title { font-size: clamp(3.35rem, 16vw, 5rem); }.hero-role { min-height: 3rem; font-size: 1.12rem; }.hero-description { font-size: .95rem; }.hero-actions { gap: 8px; }.hero-button { width: 100%; justify-content: center; }.hero-socials { flex-wrap: wrap; gap: 12px; }.spotlight-shell { min-height: 480px; padding: 17px; border-radius: 20px; }.spotlight-content h2 { font-size: 2.35rem; }.spotlight-index { font-size: 5rem; }.spotlight-description { font-size: 12px; }.hero-scroll-cue { bottom: 18px; } }
 @media (prefers-reduced-motion: reduce) { .hero-stage__beam, .spotlight-orbit, .hero-role__cursor { animation: none; } }
+
+
+/* Keep spotlight slides visually balanced when project titles vary in length */
+.spotlight-content h2 { min-height: 2em; max-width: 340px; font-size: clamp(1.85rem, 3.5vw, 2.8rem); }
+.spotlight-description { min-height: 5.2em; max-width: 390px; }
+.spotlight-tech { min-height: 25px; }
+@media (max-width: 640px) { .spotlight-content h2 { min-height: 0; max-width: 300px; font-size: 2.2rem; } .spotlight-description { min-height: 0; } }

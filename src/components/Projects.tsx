@@ -6,7 +6,10 @@ import { ChevronDown } from "lucide-react";
 import SectionLabel from "./SectionLabel";
 import ProjectCard from "./ProjectCard";
 import ProjectModal from "./ProjectModal";
-import { featuredProjects, otherProjects, type Project } from "@/data/projects";
+import { projects, otherProjects, type Project } from "@/data/projects";
+
+const projectOrder = ["ai-ecommerce", "smartsched", "resumelens", "juraai-pk"];
+const orderedFeaturedProjects = projectOrder.map((slug) => projects.find((project) => project.slug === slug)).filter((project): project is NonNullable<typeof project> => Boolean(project));
 
 export default function Projects() {
   const [showMore, setShowMore] = useState(false);
@@ -18,7 +21,7 @@ export default function Projects() {
         <SectionLabel index="03" label="projects" />
 
         <div className="grid gap-6 sm:grid-cols-2">
-          {featuredProjects.map((p, i) => (
+          {orderedFeaturedProjects.map((p, i) => (
             <ProjectCard key={p.slug} project={p} index={i} onOpen={setOpenProject} />
           ))}
         </div>
