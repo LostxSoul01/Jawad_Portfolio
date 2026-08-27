@@ -13,20 +13,14 @@ const WELCOME: ChatMessage = {
     "Hi, I’m Jawad’s portfolio robot. Ask me about his projects, technical strengths, education, career goals, or how he approaches engineering work.",
 };
 
-function RobotMascot({ isOpen }: { isOpen: boolean }) {
+function RobotMascot({ isOpen, compact = false }: { isOpen: boolean; compact?: boolean }) {
   return (
-    <span className="relative block h-14 w-16" aria-hidden="true">
-      <span className="absolute bottom-0 left-1/2 h-2 w-12 -translate-x-1/2 rounded-full bg-black/20 blur-sm" />
-      <span className="absolute left-3 top-1 h-9 w-10 rounded-[13px] border-2 border-void/80 bg-gradient-to-br from-white to-cyan shadow-[0_0_18px_rgba(103,232,249,0.45)]">
-        <span className="absolute -top-2 left-1/2 h-2 w-2 -translate-x-1/2 rounded-full bg-violet ring-2 ring-void/50" />
-        <span className="absolute left-2.5 top-3 h-2 w-2 rounded-full bg-void" />
-        <span className="absolute right-2.5 top-3 h-2 w-2 rounded-full bg-void" />
-        <span className="absolute bottom-2 left-1/2 h-1 w-4 -translate-x-1/2 rounded-full bg-violet/70" />
-      </span>
-      <span className="absolute bottom-0 left-5 h-3 w-6 rounded-b-md bg-violet" />
-      <span className={`robot-wave absolute right-0 top-6 h-2 w-5 origin-left rounded-full bg-signal ${isOpen ? "[animation-play-state:paused]" : ""}`} />
-      <span className="absolute bottom-0 left-2 h-2 w-2 rounded-full bg-cyan" />
-      <span className="absolute bottom-0 right-3 h-2 w-2 rounded-full bg-cyan" />
+    <span className={`relative block ${compact ? "h-10 w-10" : "h-16 w-16"}`} aria-hidden="true">
+      <img
+        src="/robot-mascot.png"
+        alt=""
+        className={`robot-float h-full w-full object-contain ${isOpen ? "[animation-play-state:paused]" : ""}`}
+      />
     </span>
   );
 }
@@ -84,7 +78,7 @@ export default function ChatWidget() {
         onClick={() => setIsOpen((v) => !v)}
         aria-label={isOpen ? "Close Jawad’s portfolio assistant" : "Ask Jawad’s portfolio robot"}
         aria-expanded={isOpen}
-        className="group fixed bottom-6 right-6 z-40 flex h-16 w-16 items-center justify-center rounded-[22px] border border-white/20 bg-gradient-to-br from-signal to-cyan text-void shadow-xl shadow-cyan/10 transition-transform hover:-translate-y-1"
+        className="group fixed bottom-6 right-6 z-40 flex h-20 w-20 items-center justify-center rounded-[22px] border border-white/20 bg-gradient-to-br from-signal to-cyan text-void shadow-xl shadow-cyan/10 transition-transform hover:-translate-y-1"
       >
         <RobotMascot isOpen={isOpen} />
         {!isOpen && <span className="pointer-events-none absolute -top-8 right-0 whitespace-nowrap rounded-full border border-hairline bg-surface px-2.5 py-1 font-mono text-[10px] text-text-muted opacity-0 transition-opacity group-hover:opacity-100">ask my robot</span>}
@@ -102,7 +96,7 @@ export default function ChatWidget() {
             className="glass-panel fixed bottom-28 right-6 z-40 flex h-[540px] w-[calc(100vw-3rem)] max-w-sm flex-col overflow-hidden rounded-2xl shadow-2xl shadow-black/50"
           >
             <div className="flex items-center gap-3 border-b border-hairline px-4 py-3">
-              <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-signal to-cyan"><RobotMascot isOpen /></div>
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-signal to-cyan"><RobotMascot isOpen compact /></div>
               <div className="min-w-0 flex-1"><p className="font-mono text-sm text-text-primary">Jawad’s portfolio robot</p><p className="text-xs text-text-faint">projects · skills · background</p></div>
               <Sparkles size={15} className="text-signal" />
             </div>

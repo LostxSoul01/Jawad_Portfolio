@@ -134,3 +134,17 @@ body::after {
   66%, 82% { transform: rotate(-26deg); }
   74% { transform: rotate(18deg); }
 }
+
+.robot-float {
+  animation: robot-float 3.8s ease-in-out infinite;
+  filter: drop-shadow(0 10px 14px rgba(34, 211, 238, 0.18));
+}
+
+@keyframes robot-float {
+  0%, 100% { transform: translateY(2px) rotate(-2deg); }
+  50% { transform: translateY(-4px) rotate(2deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .robot-float { animation: none; }
+}
