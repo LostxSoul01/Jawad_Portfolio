@@ -13,10 +13,21 @@ type AssistantMode = "overview" | "technical" | "fit" | "recruiter";
 const modeLabels: Record<AssistantMode, string> = { overview: "overview", technical: "technical", fit: "role fit", recruiter: "recruiter" };
 const modeHints: Record<AssistantMode, string> = { overview: "Get a quick read on Jawad’s background and strongest work.", technical: "Explore architecture, models, APIs, testing, and deployment.", fit: "Understand the roles, strengths, and projects that match best.", recruiter: "Get concise hiring context, evidence, and the next best project to review." };
 const starterPrompts: Record<AssistantMode, string[]> = {
-  overview: ["What has Jawad built?", "What are his strongest skills?"],
-  technical: ["How does SmartSched work?", "Explain the AI E-Commerce architecture"],
-  fit: ["Which roles is Jawad targeting?", "Why could he fit an AI team?"],
-  recruiter: ["Which project should I review first?", "Which project best demonstrates backend engineering?"],
+  overview: ["What has he built?", "What is his tech stack?"],
+  technical: ["Tell me about SmartSched", "What makes his projects different?"],
+  fit: ["Which roles is he targeting?", "What is his engineering approach?"],
+  recruiter: ["Give me a project recommendation", "Which project demonstrates backend engineering?"],
+};
+
+const groundedAnswers: Record<string, string> = {
+  "What has he built?": "Jawad’s portfolio includes SmartSched, JuraAI.pk, ResumeLens, an AI e-commerce platform, a fake-news classifier, Skyline, an image-captioning system, an AR gesture filter, and several software-engineering systems. Explore the Projects section for the full set of case studies.",
+  "What is his tech stack?": "Jawad works across Python, JavaScript, TypeScript, React, Next.js, Node.js, FastAPI, Supabase, Firebase, REST APIs, scikit-learn, Groq, vLLM, OpenCV, MediaPipe, Docker, GitHub Actions, Vercel, Netlify, and Streamlit.",
+  "Tell me about SmartSched": "SmartSched is a full-stack academic scheduling platform with admin, faculty, student, and program portals. Its Genetic Algorithm handles room, teacher, batch, availability, lab, and repeat-course constraints, supported by typed APIs, Supabase, Zod validation, and offline edge-case tests.",
+  "What makes his projects different?": "Jawad focuses on the gap between a project that demos well and one that holds up under real use. His work emphasizes validation, testing, protected integrations, measurable results, and technical decisions that another engineer can understand and maintain.",
+  "Which roles is he targeting?": "He is targeting Junior or Associate Software Engineer, AI Engineer, GenAI Engineer, Python Developer, and Full-Stack Developer opportunities, with openness to remote roles or relocation depending on the opportunity.",
+  "What is his engineering approach?": "He starts with the user problem, chooses a reliable architecture, validates inputs and outputs, keeps secrets server-side, tests edge cases, and deploys only after the production path works.",
+  "Give me a project recommendation": "Start with SmartSched for the clearest full-stack engineering signal. It demonstrates typed APIs, database security, constraint-aware optimization, edge-case testing, and a practical runtime budget.",
+  "Which project demonstrates backend engineering?": "SmartSched is the strongest backend-oriented case study because it combines typed API routes, Supabase Row Level Security, Zod validation, authenticated mutations, and a constraint-aware scheduling engine.",
 };
 
 const WELCOME: ChatMessage = {
@@ -69,7 +80,7 @@ export default function ChatWidget() {
       <div className="chat-mode-hint">{modeHints[mode]}</div>
       <div ref={scrollRef} className="flex-1 space-y-3 overflow-y-auto px-4 py-4">{messages.map((m, i) => <div key={i} className={`max-w-[88%] rounded-2xl px-3.5 py-2.5 text-sm leading-relaxed ${m.role === "user" ? "ml-auto rounded-br-md bg-signal text-void" : "mr-auto rounded-bl-md border border-hairline bg-void/70 text-text-muted"}`}><span className="whitespace-pre-wrap">{m.content}</span></div>)}
         {loading && <div className="mr-auto flex items-center gap-2 rounded-2xl rounded-bl-md border border-hairline bg-void px-3.5 py-2.5 text-text-faint"><Loader2 size={14} className="animate-spin" /><span className="font-mono text-xs">reviewing the portfolio...</span></div>}
-        {!loading && isFresh && <div className="chat-starters">{starterPrompts[mode].map((prompt) => <button key={prompt} type="button" onClick={() => sendMessage(prompt)}>{prompt}<ArrowUpRight size={12} /></button>)}</div>}
+        {!loading && isFresh && <div className="chat-starters">{starterPrompts[mode].map((prompt) => <button key={prompt} type="button" onClick={() => askFaq(prompt, groundedAnswers[prompt])}>{prompt}<ArrowUpRight size={12} /></button>)}</div>}
         {!loading && remainingFaqs.length > 0 && <div className="flex flex-wrap gap-1.5 pt-1">{remainingFaqs.slice(0, 3).map((f) => <button key={f.question} onClick={() => askFaq(f.question, f.answer)} className="rounded-full border border-hairline px-3 py-1.5 text-left text-xs text-text-muted transition-colors hover:border-signal hover:text-signal">{f.question}</button>)}</div>}
         {!loading && isFresh && <div className="chat-evidence-links"><span>navigate the portfolio</span><Link href="/projects/ai-ecommerce">AI E-Commerce <ArrowUpRight size={11} /></Link><Link href="/projects/smartsched">SmartSched <ArrowUpRight size={11} /></Link><Link href="/projects/juraai-pk">JuraAI.pk <ArrowUpRight size={11} /></Link><Link href="/projects/resumelens">ResumeLens <ArrowUpRight size={11} /></Link><a href="#projects">all projects <ArrowUpRight size={11} /></a><a href="#contact">contact Jawad <ArrowUpRight size={11} /></a><a href="/jawad-ali-raza-resume.pdf" download>résumé <ArrowUpRight size={11} /></a></div>}
       </div>
