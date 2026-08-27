@@ -5,6 +5,7 @@ import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
 import Education from "@/components/Education";
 import Contact from "@/components/Contact";
+import ProofOfWork from "@/components/ProofOfWork";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <Nav />
       <main>
         <Hero />
+        <ProofOfWork />
         <About />
         <Skills />
         <Projects />

@@ -14,12 +14,13 @@ export default function Contact() {
     const name = String(form.get("name") ?? "").trim();
     const email = String(form.get("email") ?? "").trim();
     const message = String(form.get("message") ?? "").trim();
+    const intent = String(form.get("intent") ?? "General inquiry");
     if (!name || !email || !email.includes("@") || message.length < 12) {
       setStatus("error");
       return;
     }
     setStatus("ready");
-    window.location.href = `mailto:jawadaliics@gmail.com?subject=${encodeURIComponent(`Portfolio inquiry from ${name}`)}&body=${encodeURIComponent(`${message}\n\nReply to: ${email}`)}`;
+    window.location.href = `mailto:jawadaliics@gmail.com?subject=${encodeURIComponent(`${intent} from ${name}`)}&body=${encodeURIComponent(`Intent: ${intent}\n\n${message}\n\nReply to: ${email}`)}`;
   }
 
   return (
@@ -44,6 +45,7 @@ export default function Contact() {
               <label className="contact-field">Name<input name="name" required placeholder="Your name" autoComplete="name" /></label>
               <label className="contact-field">Email<input name="email" required type="email" placeholder="you@company.com" autoComplete="email" /></label>
             </div>
+            <label className="contact-field mt-4">What brings you here?<select name="intent" defaultValue="Job opportunity"><option>Job opportunity</option><option>Freelance project</option><option>Collaboration</option><option>Technical question</option><option>General inquiry</option></select></label>
             <label className="contact-field mt-4">Message<textarea name="message" required minLength={12} rows={5} placeholder="A little context goes a long way..." /></label>
             {status === "error" && <p className="mt-3 text-xs text-rose-300">Please add your name, a valid email, and at least a sentence of context.</p>}
             {status === "ready" && <p className="mt-3 text-xs text-signal">Opening your email client…</p>}
