@@ -4,10 +4,11 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowDown, ArrowRight, ChevronLeft, ChevronRight, ExternalLink, Sparkles } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "./Icons";
-import { featuredProjects } from "@/data/projects";
+import { projects } from "@/data/projects";
 
 const roles = ["Software Engineer", "AI Engineer", "Full-Stack Developer", "GenAI Engineer"];
-const spotlightProjects = featuredProjects.slice(0, 3);
+const spotlightOrder = ["ai-ecommerce", "smartsched", "resumelens"];
+const spotlightProjects = spotlightOrder.map((slug) => projects.find((project) => project.slug === slug)).filter((project): project is NonNullable<typeof project> => Boolean(project));
 
 function useTypedRole() {
   const [roleIndex, setRoleIndex] = useState(0);
