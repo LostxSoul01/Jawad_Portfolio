@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { ExternalLink, Lock } from "lucide-react";
 import { GithubIcon } from "./Icons";
@@ -105,9 +106,14 @@ export default function ProjectCard({
         </div>
       )}
 
-      <span className="mt-4 font-mono text-[11px] text-text-faint group-hover:text-signal transition-colors">
-        view details →
-      </span>
+      <div className="mt-4 flex items-center justify-between gap-3">
+        <span className="font-mono text-[11px] text-text-faint group-hover:text-signal transition-colors">view details →</span>
+        {project.caseStudySlug && (
+          <Link href={`/projects/${project.caseStudySlug}`} onClick={(e) => e.stopPropagation()} className="font-mono text-[11px] text-signal transition-colors hover:text-text-primary">
+            case study ↗
+          </Link>
+        )}
+      </div>
     </motion.article>
   );
 }

@@ -11,6 +11,7 @@ export type Project = {
   status: "live" | "code" | "private";
   year: string;
   featured: boolean;
+  caseStudySlug?: string;
 };
 
 // Fill in liveUrl / githubUrl for each project below.
@@ -34,6 +35,7 @@ export const projects: Project[] = [
     status: "private",
     year: "2026",
     featured: true,
+    caseStudySlug: "smartsched",
   },
   {
     slug: "juraai-pk",
@@ -54,6 +56,7 @@ export const projects: Project[] = [
     status: "live",
     year: "2026",
     featured: true,
+    caseStudySlug: "juraai-pk",
   },
   {
     slug: "resumelens",

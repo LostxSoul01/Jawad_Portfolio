@@ -101,6 +101,10 @@ export default function Hero() {
           Engineering graduate from COMSATS University Islamabad.
         </motion.p>
 
+        <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.35 }} className="mt-6 flex flex-wrap gap-2">
+          {["AI products", "Full-stack systems", "Production-minded"].map((item) => <span key={item} className="rounded-full border border-hairline bg-surface/70 px-3 py-1.5 font-mono text-[11px] text-text-muted">{item}</span>)}
+        </motion.div>
+
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}

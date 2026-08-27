@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail } from "lucide-react";
+import { ArrowUpRight, Mail } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "./Icons";
 import SectionLabel from "./SectionLabel";
 
@@ -17,13 +17,12 @@ export default function Contact() {
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6 }}
         >
+          <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-signal/20 bg-signal/5 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-signal"><span className="h-1.5 w-1.5 animate-pulse rounded-full bg-signal" /> Open to the right opportunity</div>
           <h2 className="font-display text-3xl sm:text-4xl font-semibold text-text-primary text-balance max-w-xl">
-            Open to entry-level engineering roles — let&apos;s talk.
+            Have a hard problem? Let&apos;s build the useful version.
           </h2>
-          <p className="mt-4 text-text-muted max-w-lg">
-            Junior/Associate Software Engineer, AI Engineer, GenAI Engineer,
-            Python Developer, or Full-Stack roles. Reach out directly or find
-            me on GitHub and LinkedIn.
+          <p className="mt-4 text-text-muted max-w-lg leading-relaxed">
+            I&apos;m open to Junior/Associate Software Engineer, AI Engineer, GenAI Engineer, Python Developer, and Full-Stack roles where thoughtful engineering meets real product outcomes.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-4">
@@ -53,6 +52,7 @@ export default function Contact() {
               linkedin
             </a>
           </div>
+          <p className="mt-5 flex items-center gap-2 font-mono text-xs text-text-faint"><ArrowUpRight size={13} className="text-signal" /> Usually replies within 1–2 business days</p>
         </motion.div>
 
         <div className="mt-24 pt-8 border-t border-hairline flex flex-col sm:flex-row items-center justify-between gap-3">
